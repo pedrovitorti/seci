@@ -76,7 +76,9 @@
 			</center>
 			
 			<center>
-				<span class="fonte_menus border" style="color:white;">O usuário ou a senha não corresponde a nenhuma conta.</span>
+				<div class="alert alert-danger" role="alert">
+ 					 <strong>Atenção!</strong> O usuário ou a senha não corresponde a nenhuma conta.
+				</div>
 			</center>	
 		<br><br>
 			<form method="post" action="./paginas/seguranca.php">
