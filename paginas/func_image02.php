@@ -13,7 +13,7 @@ function generate_image( $args = array() ) {
 	//imagen ensino
 	if($category_text == 'ENSINO'){
 		//Mudar imagem de fundo
-		$args['imagebase'] = dirname(__FILE__) .'/imagem_gerada_ENSINO.jpg';
+		$args['imagebase'] = dirname(__FILE__) .'/imagens/background_eixos/imagem_gerada_ENSINO.jpg';
 		$dest = imagecreatefromjpeg( $args['imagebase'] );// pegando a imagem 
 	 	$textcolor = imagecolorallocate( $dest,255, 255, 255 ); //Cor do texto branco
 		$textcolorsub = imagecolorallocate( $dest, 255, 255, 255 );
@@ -22,7 +22,7 @@ function generate_image( $args = array() ) {
 	//imagem pesquisa
 	if($category_text == 'PESQUISA'){
 		//Mudar imagem de fundo
-		$args['imagebase'] = dirname(__FILE__) .'/imagem_gerada_PESQUISA.jpg';
+		$args['imagebase'] = dirname(__FILE__) .'/imagens/background_eixos/imagem_gerada_PESQUISA.jpg';
 		$dest = imagecreatefromjpeg( $args['imagebase'] );// pegando a imagem 
 	 	$textcolor = imagecolorallocate( $dest,255, 255, 255 ); //Cor do texto branco
 		$textcolorsub = imagecolorallocate( $dest, 255, 255, 255 );
@@ -31,7 +31,7 @@ function generate_image( $args = array() ) {
 	//imagen EXTENSÃO - ok
 	if($category_text == 'EXTENSÃO'){
 		//Mudar imagem de fundo
-		$args['imagebase'] = dirname(__FILE__) .'/imagem_gerada_EXTENSAO.jpg';
+		$args['imagebase'] = dirname(__FILE__) .'/imagens/background_eixos/imagem_gerada_EXTENSAO.jpg';
 		$dest = imagecreatefromjpeg( $args['imagebase'] );// pegando a imagem 
 	 	$textcolor = imagecolorallocate( $dest,25, 67, 56 ); //Cor do texto branco
 		$textcolorsub = imagecolorallocate( $dest, 255, 255, 255 );
@@ -41,7 +41,7 @@ function generate_image( $args = array() ) {
 	//imagen ESTÁGIO - ok
 	if($category_text == 'ESTÁGIO'){
 		//Mudar imagem de fundo
-		$args['imagebase'] = dirname(__FILE__) .'/imagem_gerada_ESTAGIO.jpg';
+		$args['imagebase'] = dirname(__FILE__) .'/imagens/background_eixos/imagem_gerada_ESTAGIO.jpg';
 		$dest = imagecreatefromjpeg( $args['imagebase'] );// pegando a imagem 
 	 	$textcolor = imagecolorallocate( $dest,255, 255, 255 ); //Cor do texto branco
 		$textcolorsub = imagecolorallocate( $dest, 255, 255, 255 );
@@ -51,7 +51,7 @@ function generate_image( $args = array() ) {
 	//imagen DIREÇÃO GERAL/DIRAP - ok
 	if($category_text == 'DIREÇÃO GERAL/DIRAP'){
 		//Mudar imagem de fundo
-		$args['imagebase'] = dirname(__FILE__) .'/imagem_gerada_DIRAP.jpg';
+		$args['imagebase'] = dirname(__FILE__) .'/imagens/background_eixos/imagem_gerada_DIRAP.jpg';
 		$dest = imagecreatefromjpeg( $args['imagebase'] );// pegando a imagem 
 	 	$textcolor = imagecolorallocate( $dest,255, 255, 255 ); //Cor do texto branco
 		$textcolorsub = imagecolorallocate( $dest, 255, 255, 255 );
@@ -61,7 +61,7 @@ function generate_image( $args = array() ) {
 	//imagen DIREN -ok
 	if($category_text == 'DIREN'){
 		//Mudar imagem de fundo
-		$args['imagebase'] = dirname(__FILE__) .'/imagem_gerada_DIREN.jpg';
+		$args['imagebase'] = dirname(__FILE__) .'/imagens/background_eixos/imagem_gerada_DIREN.jpg';
 		$dest = imagecreatefromjpeg( $args['imagebase'] );// pegando a imagem 
 	 	$textcolor = imagecolorallocate( $dest,63,45, 10 ); //Cor do texto branco
 		$textcolorsub = imagecolorallocate( $dest, 255, 255, 255 );
