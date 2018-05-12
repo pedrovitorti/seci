@@ -469,7 +469,7 @@ input[type=submit]{
 		
 		<section id="destaques">
 			<div class='loading'>
-    			<center><img src='./aguarde2.gif' alt=''/></center>
+    			<center><img src='./imagens/aguarde2.gif' alt=''/></center>
 			</div>
 		</section>
 

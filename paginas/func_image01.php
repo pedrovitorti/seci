@@ -83,23 +83,23 @@ function generate_image( $args = array() ) {
 	
 
 	//Título - salvar 
-   $f1 = fopen("title.txt", "w+"); //w+ Abre para leitura e escrita; Apaga o conteúdo que já foi escrito. Tenta criar
+   $f1 = fopen("./gerar_image_01/title.txt", "w+"); //w+ Abre para leitura e escrita; Apaga o conteúdo que já foi escrito. Tenta criar
    $text1 = $title_text;
    fwrite($f1, $text1);
    fclose($f1);
 	//Título - Pegando cada linha da descrição
-   $arquivo1 = file("title.txt");
+   $arquivo1 = file("./gerar_image_01/title.txt");
 	$linha0 =$arquivo1[0]; 
 	$linha1 =$arquivo1[1]; 	
 
 
 	//Descrição - salvar 
-   $f2 = fopen("description.txt", "w+"); //w+ Abre para leitura e escrita; Apaga o conteúdo que já foi escrito. Tenta criar
+   $f2 = fopen("./gerar_image_01/description.txt", "w+"); //w+ Abre para leitura e escrita; Apaga o conteúdo que já foi escrito. Tenta criar
    $text2 = $description_text;
    fwrite($f2, $text2);
    fclose($f2);
 	//Descrição - Pegando cada linha da descrição
-   $arquivo2 = file("description.txt");
+   $arquivo2 = file("./gerar_image_01/description.txt");
 	$linha00 =$arquivo2[0]; 
 	$linha11 =$arquivo2[1]; 	
 	$linha22 =$arquivo2[2]; 

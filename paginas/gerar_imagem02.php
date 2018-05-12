@@ -262,7 +262,7 @@
 	
 			<div id="parte02">
 				<br><br><br>Imagem de plano de fundo:<br><br>
-				<img width="400" height="250" src="fundos.png" />
+				<img width="400" height="250" src="imagens/fundos.png" />
 			</div>
 		
 		</div>
@@ -295,9 +295,9 @@ $args = array(
 	'title_text'    => $title_text,
 	'description_text' => $description_text,
 	'filename'    => $filename,
-	'font'        => dirname(__FILE__) .'/OpenSans-ExtraBold.ttf',
-	'font_sub'    => dirname(__FILE__) .'/OpenSans-Light.ttf',//'/sans.ttf',
-	'imagebase'    => dirname(__FILE__) .'/imagem_gerada.jpg',
+	'font'        => dirname(__FILE__) .'/font/OpenSans-ExtraBold.ttf',
+	'font_sub'    => dirname(__FILE__) .'/font/OpenSans-Light.ttf',//'/sans.ttf',
+	'imagebase'    => dirname(__FILE__) .'/imagens/imagem_gerada.jpg',
 	'sub_category_textsize'    => 24,
 	'title_textsize'    => 55,
 	'descrition_textsize'    => 38,

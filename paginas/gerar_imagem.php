@@ -4,7 +4,7 @@
         header('location:../index_login.php');
         exit();
     }
-	require_once( 'func_image.php' );
+	require_once( 'func_image01.php' );
 	// if form not submitted, show it and bail
 	if ( ! isset( $_GET['title_text'] ) && ! isset( $_GET['description_text'] ) ) {
 ?>

@@ -181,7 +181,7 @@
 		
 		<!-- Conteúdo principal -->
 		<section>
-			<br><br><center>Tutorial de funcionamento SECI: <a href="enucomp_anaisX_2017-525-532.pdf">Artigo publicado sobre SECI<a></center>
+			<br><br><center>Tutorial de funcionamento SECI: <a href="../Documentos/enucomp_anaisX_2017-525-532.pdf">Artigo publicado sobre SECI<a></center>
 		</section>
 		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		<footer id="footer">
