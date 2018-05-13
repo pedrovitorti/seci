@@ -28,77 +28,100 @@
 				left: 0px;
 				margin: 0px;
 				padding: 0px;
-				/*background-image: url(imagens/fundo.jpg);*/
+				background-image: url(imagens/fundo.jpg);
+			    background-size:1300px;	
 			}
 
 			#container {
-				/*position: absolute;*/
 				top: 50px;
 				right: 0px;
 				bottom: 0px;
 				left: 0px;
-				width: 300px;
-				height: 250px;
+				width: 450px;
+				height: 100%;
 				margin: auto;
+				margin-top:70px;
 				box-shadow: 0px 0px 10px black;
 				padding: 40px;
 				box-sizing: border-box;
-				background-color: white;
+				background-color:#dcdde1;
 				background-repeat: no-repeat;
 			}
 
 			/*Fontes*/
-			.fonte_titulos{
-				font-family: "Times", serif;
-				font-size: 25px;
-			}
-
 			.fonte_menus{
-				font-family: "Times", serif;
-				font-size: 16px;
+				font-family:Algerian;
+				font-size: 20px;
 			}
+			
+            input[type="text"]{
+                border: 2px solid #cccccc;
+                height: 40px;
+                width:100%;
+                border-radius: 0px;
+            }
+            
+            input[type="text"]:hover{
+                border: 2px solid #b5b6bc;
+            }
+            
+            input[type="password"]{
+                border: 2px solid #cccccc;
+                height: 40px;
+                width:100%;
+                border-radius: 0px;  
+            }
+            
+            input[type="password"]:hover{
+                border: 2px solid #b5b6bc;
+            }
+
+            input[type="submit"]{
+                height: 40px;
+                width:100%;
+                border-radius: 0px;
+                margin-top:80px;
+            }
+            
 		</style>
 
 	</head>
 	<body>
 
-		<section id="main">
+		<header>
+			<!-- Cabeçalho - sem -->
+		</header>	
+		
 		<!-- Conteúdo principal -->
-		<br><br>
-			<center>
-				<img src="./imagens/seci.png"><br><br><br><br>
-				<!--<span class="fonte_titulos">Sistema Gerenciador de Avisos</span><br><br><br>-->
-			</center>
-					
+		<div >
 			<form method="post" action="./paginas/seguranca.php">
 				<div id="container">
-					 <div class="col-xs-15">
-				 		
-		  					<span class="fonte_menus">Usuário</span><input class="form-control" type="text" name="login" maxlength="30" required/>
-						</div>
+				
+    				<center>
+    					<img src="./imagens/seci.png" width="365px"><br><br><br><br>
+    				</center>		
+	
+					<div class="col-xs-15">
+		  				<span class="fonte_menus">Usuário</span><input type="text" name="login" maxlength="30" required/>
+					</div>
 					
 					 <div class="col-xs-15">
-				  		
-		 					<span class="fonte_menus">Senha</span><input class="form-control" type="password" name="senha" maxlength="30" required/><br>
-		 					<span class="fonte_menus"><input  class="btn btn-primary" type="submit" value="Entrar"/></span>	
+		 					<span class="fonte_menus">Senha</span><input type="password" name="senha" maxlength="30" required/><br>
+		 					<input  class="btn btn-primary fonte_menus" type="submit" value="Entrar"/>	
 					</div>
 					
 				</div>
 				<br>
 			
 			</form>
-		</section>
+		</div>
 		
-		<section id="destaques">
-			<!-- Painéis com destaques -->
-		</section>
-			
-		<br><br><br><br><br><br>
+		<br><br>
+		
 		<footer>
-			<!-- Conteúdo do rodapé -->
-			<center>
-				<span class="fonte_menus">© Copyright 2017 DEPPI - Departamento de Extensão, Pesquisa, Pós-graduação e Inovação</span>
-			</center>
+			<!-- Rodapé - sem -->
 		</footer>
 	</body>
 </html>
+
+<!-- Pedro V S Guimarães -->
