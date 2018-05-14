@@ -75,15 +75,11 @@
 				color: white;
 				border-bottom:3px solid white;
 			}
-            /*MENU -  FIM */
             
-    		.user {
-    		  width: 100%;
-    			font-size: 14px;
-    			top:8px;
-    			
-    		  margin-left: 940px;
-    		}
+    	   .header-black{
+    	       padding-top:10px;
+    	   }
+    		
 		</style>
 	</head>
 	<body>
@@ -91,16 +87,16 @@
 		<!-- Cabeçalho -->
 		<header>
 
-    		<div class="header-black ">
-
-    			<div class="user">
-            		<?php
-            		  echo "Olá, ".$_SESSION['user_login']." | <a href='logout.php'>Encerrar Sessão</a>"; 
-            		?>
-            	</div>
-            	
-  			</div>
-		
+    		<div class="header-black">
+    			<div class="container"> <!-- container é do bootstrap -->
+        			<div class="pull-right"> <!-- alinha informação para direita, até limites do container -->
+                		<?php
+                		  echo "Olá, ".$_SESSION['user_login']." | <a href='logout.php'>Encerrar Sessão</a>"; 
+                		?>
+                	</div>
+      			</div>
+			</div>
+			
 			<div class="container"> <!-- container é do bootstrap -->
 				
 				<div class="row">
@@ -121,8 +117,7 @@
 				<!-- logo -->
 				<img id="logotipo" src="../imagens/logo.png" alt="logotipo">
 			</div>
-			
-			
+	
 		</header>
 		
 		
