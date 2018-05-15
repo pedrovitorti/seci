@@ -25,7 +25,6 @@
             while($row = pg_fetch_array($sql)) {
                 
                 $_SESSION['qtd_avisos'] = $row[0];
-                $_SESSION['n'] = $row[0];
              
             }
                 
@@ -112,13 +111,19 @@
 		</style>
 		
 		<script type="text/javascript">
+
+		var n=1;
 		
 		$(document).ready(function() {
-			for (i = 0; i < <?php echo $_SESSION['qtd_avisos']-1?>; i++) { 
-		      var novoItem = $("#item").clone().removeAttr('id'); // para não ter id duplicado
-		      novoItem.children('input').val(''); //limpa o campo quantidade
-		      $("#formulario").append(novoItem);
-		    	
+			for (i = 0; i < <?php echo $_SESSION['qtd_avisos']?>; i++) { 
+		      //var novoItem = $("#item").clone().removeAttr('id'); // para não ter id duplicado
+		      //novoItem.children('input').val(''); //limpa o campo quantidade
+
+		      var novoItem = 'Aviso:'+n+'<input type="file" name="fileUpload'+n+'"><input type="hidden" name="nomeImg'+n+'" value="img'+n+'">';
+		   
+		      
+		      $("#item").append(novoItem);
+		    	n++;
 			}
 		  });
 
@@ -163,18 +168,16 @@
 		</header><br><br><br><br><br>
 		
 		<div class="container"> 
-						<?php
-                		  echo "Número avisos: ".$_SESSION['qtd_avisos']; 
-                		?>
+						
                 		
                 		
                 <form id="formulario" action="enviar.php" method="POST" enctype="multipart/form-data">
               
-                	<input type="submit" style="width:150;height:30" id="send" value="Enviar">
-					<!--Teste botao atualizar --> <input type="submit" style="width:150;height:30" id="send" value="Atualizar">
+                	
                 	<div id="item" >
-					Aviso <?php echo $_SESSION['n']?>: <input type="file" name="fileUpload1"><input type="hidden" name="nomeImg1" value="img1"><br>
+				
 					</div>
-					
+					<input type="submit" style="width:150;height:30" id="send" value="Enviar">
+					<input type="submit" style="width:150;height:30" id="send" value="Atualizar">	<!--Teste botao atualizar --> 
 				</form>
 		</div>
