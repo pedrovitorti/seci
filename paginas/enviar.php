@@ -128,12 +128,12 @@
 
 		sleep(10); // Espera 10 segundos para dá tempo o raspberry atualizar os avisos, tempo muito pegueno pode não atualizar
 		
-		//alterando arquivo.txt
-		$f = fopen("arquivo.txt", "r+");
+	  //alterando arquivo.txt
+	  $f = fopen("arquivo.txt", "r+");
       $text = 'a';
       fwrite($f, $text);
       fclose($f);
-		header("Location:./principal_adm.php");
+	  header("Location:./principal_adm.php");
 ?>
 
 

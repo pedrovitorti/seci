@@ -1,19 +1,61 @@
+<?php
+       
+        if(!@($conexao=pg_connect ("host=localhost dbname=avisos port=5432 user=postgres password=1"))) {
+            print "Não foi possível estabelecer uma conexão com o banco de dados.";
+        } else {
+          
+            //Verificando se o usuário está cadastrado no banco
+            $sql = pg_query("SELECT quantidade FROM qtd_avisos;")
+            or die ("Erro no comando SQL");
+            
+            //TABELA: quantidades
+            if (! $sql) {
+                echo "Consulta não foi executada!";
+            }
+          
+            while($row = pg_fetch_array($sql)) {
+                
+                $_SESSION['qtd_avisos'] = $row[0];
+             
+            }
+                pg_close ($conexao);
+                
+        }
+?>
 
 <html>
-<body>
-<div id="slideshow">
-	<img src="http://avisos.sic-maracanau.com.br/paginas/uploads/img1.jpg"  height=100% width=100%>
-	 
-	<img src="http://avisos.sic-maracanau.com.br/paginas/uploads/img2.jpg"  height=100% width=100%>
-	<img src="http://avisos.sic-maracanau.com.br/paginas/uploads/img3.jpg" height=100% width=100%>
-	<!--<img src="http://avisos.sic-maracanau.com.br/paginas/uploads/transition.gif"  height=100%" width=100%>-->
-	<img src="http://avisos.sic-maracanau.com.br/paginas/uploads/img4.jpg"  height=100% width=100%>
-	
-	<!-- novo	-->
-	<img src="../uploads/img5.jpg"  height=100% width=100%>
-	<img src="../uploads/img6.jpg"  height=100% width=100%>
-	
-</div>
+	<head>
+	  	<title>SECI - Sistema Eletrônico de Comunicação Interna</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate, Post-Check=0, Pre-Check=0">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="pragma" content="no-cache">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	</head>
+	<body onload = "exibir()">
+    <div id="slideshow">
+
+    </div>
+    
+    </body>
+</html>
+
+<script type="text/javascript">
+
+	var n=1;
+	function exibir(){
+		for (i = 0; i < 6; i++) { 
+			   
+			var novoItem = '<h1>TESTE</h1>';
+			var novoItem = '<img src="http://avisos.sic-maracanau.com.br/paginas/uploads/img'+n+'.jpg"  height=100% width=100%>';
+			$('#slideshow').append(novoItem);
+			n++;
+			      
+		}
+}	
+</script>
+		
+		
 <script>
 var slideshow = document.getElementById('slideshow');
 var slides = slideshow.getElementsByTagName('img');

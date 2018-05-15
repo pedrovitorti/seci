@@ -1,8 +1,35 @@
 <?php
-	session_start();
+        session_start();
         if (!isset($_SESSION['user_logged_in'])) {
            header('location:../index_login.php');
            exit();
+        }
+        
+        if(!@($conexao=pg_connect ("host=localhost dbname=avisos port=5432 user=postgres password=1"))) {
+            print "Não foi possível estabelecer uma conexão com o banco de dados.";
+        } else {
+          
+            //Verificando se o usuário está cadastrado no banco
+            $sql = pg_query("SELECT quantidade FROM qtd_avisos;")
+            or die ("Erro no comando SQL");
+            
+            //TABELA: quantidades
+            if (! $sql) {
+                echo "Consulta não foi executada!";
+            }
+          //  if(pg_num_rows($consulta_quantidades_computacao) == 0) {
+          //      echo "Dados do laboratório ainda não foram adicionados.";
+          //  }
+            
+          
+            while($row = pg_fetch_array($sql)) {
+                
+                $_SESSION['qtd_avisos'] = $row[0];
+             
+            }
+                
+                pg_close ($conexao);
+                
         }
 ?>
 
@@ -36,6 +63,7 @@
                 width:252px;
             	height: 102px;
             	top: 10px;
+            	border: 3px solid white;
             }
 
             header .header-black {
@@ -81,6 +109,25 @@
     	   }
     		
 		</style>
+		
+		<script type="text/javascript">
+
+		var n=1;
+		
+		$(document).ready(function() {
+			for (i = 0; i < <?php echo $_SESSION['qtd_avisos']?>; i++) { 
+		      //var novoItem = $("#item").clone().removeAttr('id'); // para não ter id duplicado
+		      //novoItem.children('input').val(''); //limpa o campo quantidade
+
+		      var novoItem = 'Aviso:'+n+'<input type="file" name="fileUpload'+n+'"><input type="hidden" name="nomeImg'+n+'" value="img'+n+'">';
+		   
+		      
+		      $("#item").append(novoItem);
+		    	n++;
+			}
+		  });
+
+		</script>
 	</head>
 	<body>
 
@@ -118,6 +165,19 @@
 				<img id="logotipo" src="../imagens/logo.png" alt="logotipo">
 			</div>
 	
-		</header>
+		</header><br><br><br><br><br>
 		
-		
+		<div class="container"> 
+						
+                		
+                		
+                <form id="formulario" action="enviar.php" method="POST" enctype="multipart/form-data">
+              
+                	
+                	<div id="item" >
+				
+					</div>
+					<input type="submit" style="width:150;height:30" id="send" value="Enviar">
+					<input type="submit" style="width:150;height:30" id="send" value="Atualizar">	<!--Teste botao atualizar --> 
+				</form>
+		</div>
