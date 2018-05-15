@@ -44,7 +44,7 @@
 
 	var n=1;
 	function exibir(){
-		for (i = 0; i < 6; i++) { 
+		for (i = 0; i < <?php echo $_SESSION['qtd_avisos']?>; i++) { 
 
 			var novoItem = '<img src="http://avisos.sic-maracanau.com.br/paginas/uploads/img'+n+'.jpg"  height=100% width=100%>';
 			$('#slideshow').append(novoItem);
