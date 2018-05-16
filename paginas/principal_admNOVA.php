@@ -108,6 +108,16 @@
     	       padding-top:10px;
     	   }
     		
+    	   #upload{
+    	       background-color: #dcdde1;
+    	       padding: 6px 15px;
+    	       width: 500px;
+    	   }
+    	   
+    	   h4{
+    	       margin: 0 auto;
+    	   
+    	   }
 		</style>
 		
 		<script type="text/javascript">
@@ -119,7 +129,7 @@
 		      //var novoItem = $("#item").clone().removeAttr('id'); // para não ter id duplicado
 		      //novoItem.children('input').val(''); //limpa o campo quantidade
 
-		      var novoItem = 'Aviso:'+n+'<input type="file" name="fileUpload'+n+'"><input type="hidden" name="nomeImg'+n+'" value="img'+n+'">';
+		      var novoItem = 'Aviso '+n+':<div id="upload"><input type="file" name="fileUpload'+n+'"><input type="hidden" name="nomeImg'+n+'" value="img'+n+'"></div>';
 		   
 		      
 		      $("#item").append(novoItem);
@@ -167,16 +177,17 @@
 	
 		</header><br><br><br><br><br>
 		
-		<div class="container"> 
+	
+		<div class="container "> 
 						
                 		
                 		
                 <form id="formulario" action="enviar.php" method="POST" enctype="multipart/form-data">
               
-                	
-                	<div id="item" >
-				
-					</div>
+                	<h4>Modificar Avisos</h4>
+                	<div id="item"  >
+					
+					</div><br>
 					<input type="submit" style="width:150;height:30" id="send" value="Enviar">
 					<input type="submit" style="width:150;height:30" id="send" value="Atualizar">	<!--Teste botao atualizar --> 
 				</form>
