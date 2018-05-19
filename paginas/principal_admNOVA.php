@@ -175,16 +175,16 @@
 				<img id="logotipo" src="../imagens/logo.png" alt="logotipo">
 			</div>
 	
-		</header><br><br><br><br><br>
+		</header><br><br><br>
 		
 	
 		<div class="container "> 
 						
                 		
-                		
+                <h4>Modificar Avisos</h4><br>
                 <form id="formulario" action="enviar.php" method="POST" enctype="multipart/form-data">
               
-                	<h4>Modificar Avisos</h4>
+                	
                 	<div id="item"  >
 					
 					</div><br>
