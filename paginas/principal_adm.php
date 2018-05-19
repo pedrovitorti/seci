@@ -234,21 +234,9 @@ figcaption {
 #formulario {
 	margin: -240px 10px 10px 490px;
 }
-/*teste*/
-#send, .loading {
-	margin: 10px auto;
-	width: 40%;
-}
 
-.loading>img {
-	max-width: 1500px
-}
 
-.loading {
-	visibility: hidden
-}
-
-/* teste*/
+/* container tv com pré-avisos*/
 #container {
 	/*position: absolute;*/
 	top: 0px;
@@ -264,22 +252,50 @@ figcaption {
 }
 
 
+input[type=text]:hover, textarea:hover {
+	background: #ffffff;
+	border: 1px solid #990000;
+}
+
+input[type=submit] {
+	background: #006699;
+	color: #ffffff;
+}
+
+/*exibição mensagem aguarde...*/
+#blanket, #aguarde {
+	position: fixed;
+	display: none;
+}
+
+#blanket {
+	left: 0;
+	top: 0;
+	background-color: #f0f0f0;
+	filter: alpha(opacity = 65);
+	height: 100%;
+	width: 100%;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=65)";
+	opacity: 0.65;
+	z-index: 9998;
+}
+
+#aguarde {
+	width: auto;
+	height: 30px;
+	top: 40%;
+	left: 45%;
+	background: url('http://i.imgur.com/SpJvla7.gif') no-repeat 0 50%;
+	line-height: 30px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	z-index: 9999;
+	padding-left: 27px;
+}
 </style>
 
 <!--SlideShow Imagens - Fim -->
-<script type="text/javascript">
 
-    		var n=1;
-    		
-    		$(document).ready(function() {
-    			for (i = 0; i < <?php echo $_SESSION['qtd_avisos']?>; i++) { 
-    		      var novoItem = 'Aviso '+n+':<div id="upload"><input type="file" name="fileUpload'+n+'"><input type="hidden" name="nomeImg'+n+'" value="img'+n+'"></div>';
-    		      $("#item").append(novoItem);
-    		    	n++;
-    			}
-    		  });
-  		  
-		</script>
 
 </head>
 <body onload="exibir()">
@@ -305,10 +321,10 @@ figcaption {
 			<div class="row">
 				<nav id="menu-opcoes" class="pull-right">
 					<ul>
-						<li><a href="#">Página Inicial</a></li>
-						<li><a href="#">Criar avisos</a></li>
-						<li><a href="#">Galeria</a></li>
-						<li><a href="#">Ajuda</a></li>
+						<li><a href="./principal_adm.php">Página inicial</a></li>
+						<li><a href="./gerar_imagem.php">Criar avisos</a></li>
+						<li><a href="./galeria.php">Galeria</a></li>
+						<li><a href="./ajuda.php">Ajuda</a></li>
 					</ul>
 				</nav>
 
@@ -344,27 +360,29 @@ figcaption {
 			<figcaption></figcaption>
 		</figure>
 
-
-
 		<div class="container">
 
-
+			<div id="blanket"></div>
+			<div id="aguarde">Aguarde...</div>
 
 			<form id="formulario" action="enviar.php" method="POST"
 				enctype="multipart/form-data">
 
-				<h4>Modificar Avisos</h4><br>
+				<h4>Modificar Avisos</h4>
+				<br>
 				<div id="item"></div>
-				<br> <input type="submit" style="width: 150; height: 30" id="send"
-					value="Enviar"> <input type="submit" style="width: 150; height: 30"
-					id="send" value="Atualizar">
+				<br> <input type="submit"
+					onclick="javascript:document.getElementById('blanket').style.display = 'block';document.getElementById('aguarde').style.display = 'block';"
+					style="width: 150; height: 30"  value="Enviar"> <input
+					type="submit"
+					onclick="javascript:document.getElementById('blanket').style.display = 'block';document.getElementById('aguarde').style.display = 'block';"
+					style="width: 150; height: 30"  value="Atualizar">
 				<!--Teste botao atualizar -->
 			</form>
 		</div>
 
 	</div>
 </body>
-
 
 </html>
 
@@ -382,7 +400,7 @@ figcaption {
 			
 		}
 		  
-	</script>
+</script>
 
 <!-- JavaScript -->
 <script type="text/javascript">
@@ -464,29 +482,19 @@ figcaption {
 				}
 
 				window.addEventListener("load",setaImagem,false);
-			</script>
+</script>
 
-<!-- JavaScript -->
+
 <script type="text/javascript">
-		$(function(){
-    
-            var loading = $('.loading');
-            
-            // Supondo que seja o evento de submit
-            $('#send').on('click', function(){
-                
-                $.ajax({
-                    url: 'http://pt.stackoverflow.com/',
-                    data: {stack:'overflow'},
-                    beforeSend: function(){
-                        loading.css('visibility', 'visible'); // exibe o div
-        					sleep(1000);
-                    },
-                    complete: function(){
-                        loading.css('visibility', 'hidden'); // esconde o div
-        						//sleep(1000);
-                    }
-                });
-            });
-        });
-	</script>
+
+    		var n=1;
+    		
+    		$(document).ready(function() {
+    			for (i = 0; i < <?php echo $_SESSION['qtd_avisos']?>; i++) { 
+    		      var novoItem = 'Aviso '+n+':<div id="upload"><input type="file" name="fileUpload'+n+'"><input type="hidden" name="nomeImg'+n+'" value="img'+n+'"></div>';
+    		      $("#item").append(novoItem);
+    		    	n++;
+    			}
+    		  });
+  		  
+		</script>
