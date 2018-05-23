@@ -258,10 +258,10 @@ header .header-black {
 			<div class="row">
 				<nav id="menu-opcoes" class="pull-right">
 					<ul>
-						<li><a href="principal_adm.php">Página Inicial</a></li>
-						<li><a href="#">Criar avisos</a></li>
+							<li><a href="principal_adm.php">Página Inicial</a></li>
+						<li><a href="gerar_imagem.php">Criar avisos</a></li>
 						<li><a href="galeria.php">Galeria</a></li>
-						<li><a href="#">Ajuda</a></li>
+						<li><a href="ajuda.php">Ajuda</a></li>
 					</ul>
 				</nav>
 
