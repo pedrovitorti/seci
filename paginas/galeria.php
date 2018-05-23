@@ -259,8 +259,8 @@ header .header-black {
 				<nav id="menu-opcoes" class="pull-right">
 					<ul>
 						<li><a href="principal_adm.php">Página Inicial</a></li>
-						<li><a href="galeria.php">Criar avisos</a></li>
-						<li><a href="#">Galeria</a></li>
+						<li><a href="#">Criar avisos</a></li>
+						<li><a href="galeria.php">Galeria</a></li>
 						<li><a href="#">Ajuda</a></li>
 					</ul>
 				</nav>
@@ -286,6 +286,7 @@ header .header-black {
 		<div id="container">
 			<h3>Galeria Avisos</h3>
 			<hr>
+			<center>
 			<div class="demo-gallery">
 				<ul id="lightgallery" class="list-unstyled row">
 		
@@ -308,7 +309,7 @@ header .header-black {
                     ?>
               
             </ul>
-			</div>
+			</div></center>
 			<script
 				src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
 			<script
