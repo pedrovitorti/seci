@@ -79,20 +79,6 @@ header .header-black {
 .header-black {
 	padding-top: 10px;
 }
-
-/*menu*/
-#container {
-	width: 100%;
-	height: auto;
-	margin: auto;
-	/*box-shadow: 0px 0px 10px black;*/
-	padding: 90px 0px 0px 0px;
-}
-
-.container {
-	margin: 0 auto;
-	width: 940px;
-}
 </style>
 </head>
 <body>
@@ -135,36 +121,3 @@ header .header-black {
 		</div>
 
 	</header>
-
-	<div class="container">
-
-		<div id="container">
-			<section id="main">
-				<!-- Conteúdo principal -->
-
-				<!--<a href="gerar_imagem01.php">Gerar imagem tipo 01</a><br>
-        			<a href="gerar_imagem02.php">Gerar imagem tipo 02</a>-->
-
-				<div id="container">
-					<p>Modelo 01</p>
-					<a href="gerar_imagem01.php"> <img border="0" alt="aviso01"
-						src="./imagens/aviso01.jpg" width="200" height="100">
-					</a>
-
-					<p>Modelo 02</p>
-					<a href="gerar_imagem02.php"> <img border="0" alt="aviso02"
-						src="./imagens/aviso02.jpg" width="200" height="100">
-					</a>
-
-					<p>Modelo 03</p>
-					<a href="gerar_imagem03.php"> <img border="0" alt="aviso03"
-						src="./imagens/aviso03.jpg" width="200" height="100">
-					</a>
-				</div>
-
-
-			</section>
-		</div>
-	</div>
-</body>
-</html>

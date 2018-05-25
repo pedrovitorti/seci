@@ -235,7 +235,6 @@ figcaption {
 	margin: -240px 10px 10px 490px;
 }
 
-
 /* container tv com pré-avisos*/
 #container {
 	/*position: absolute;*/
@@ -250,7 +249,6 @@ figcaption {
 	padding: 90px 150px 150px 160px;
 	/*box-sizing: border-box;*/
 }
-
 
 input[type=text]:hover, textarea:hover {
 	background: #ffffff;
@@ -292,6 +290,11 @@ input[type=submit] {
 	z-index: 9999;
 	padding-left: 27px;
 }
+
+.container {
+	margin: 0 auto;
+	width: 940px;
+}
 </style>
 
 <!--SlideShow Imagens - Fim -->
@@ -322,7 +325,7 @@ input[type=submit] {
 				<nav id="menu-opcoes" class="pull-right">
 					<ul>
 						<li><a href="./principal_adm.php">Página inicial</a></li>
-						<li><a href="./gerar_imagem.php">Criar avisos</a></li>
+						<li><a href="./modelos.php">Criar avisos</a></li>
 						<li><a href="./galeria.php">Galeria</a></li>
 						<li><a href="./ajuda.php">Ajuda</a></li>
 					</ul>
@@ -373,10 +376,9 @@ input[type=submit] {
 				<div id="item"></div>
 				<br> <input type="submit"
 					onclick="javascript:document.getElementById('blanket').style.display = 'block';document.getElementById('aguarde').style.display = 'block';"
-					style="width: 150; height: 30"  value="Enviar"> <input
-					type="submit"
+					style="width: 150; height: 30" value="Enviar"> <input type="submit"
 					onclick="javascript:document.getElementById('blanket').style.display = 'block';document.getElementById('aguarde').style.display = 'block';"
-					style="width: 150; height: 30"  value="Atualizar">
+					style="width: 150; height: 30" value="Atualizar">
 				<!--Teste botao atualizar -->
 			</form>
 		</div>
