@@ -93,6 +93,24 @@ header .header-black {
 	margin: 0 auto;
 	width: 940px;
 }
+
+.modelo {
+	width: 940px;
+	height: 160px;
+	background-color: #dcdde1;
+	margin-bottom: 20px;
+}
+
+
+
+ul {
+	padding-left: 300px;
+}
+
+h4 {
+    padding-top:15px;
+	padding-left: 300px;
+}
 </style>
 </head>
 <body>
@@ -139,31 +157,48 @@ header .header-black {
 	<div class="container">
 
 		<div id="container">
-			<section id="main">
-				<!-- Conteúdo principal -->
 
-				<!--<a href="gerar_imagem01.php">Gerar imagem tipo 01</a><br>
-        			<a href="gerar_imagem02.php">Gerar imagem tipo 02</a>-->
 
-				<div id="container">
-					<p>Modelo 01</p>
-					<a href="gerar_imagem01.php"> <img border="0" alt="aviso01"
-						src="./imagens/aviso01.jpg" width="200" height="100">
-					</a>
+			<a href="gerar_modelo01.php">
+				<div class="modelo">
+					<img border="0" alt="aviso01" src="./imagens/aviso01.jpg"
+						width="260" height="160"
+						style="border: 2px solid #7f8fa6; float: left;">
+					<h4>Modelo 01</h4>
+					<ul>
+						<li>Possui um tema principal com duas linhas.</li>
+						<li>Descrição com três linhas.</li>
+					</ul>
 
-					<p>Modelo 02</p>
-					<a href="gerar_imagem02.php"> <img border="0" alt="aviso02"
-						src="./imagens/aviso02.jpg" width="200" height="100">
-					</a>
 
-					<p>Modelo 03</p>
-					<a href="gerar_imagem03.php"> <img border="0" alt="aviso03"
-						src="./imagens/aviso03.jpg" width="200" height="100">
-					</a>
+				</div>
+			</a> <a href="gerar_modelo02.php">
+				<div class="modelo">
+					<img border="0" alt="aviso02" src="./imagens/aviso02.jpg"
+						width="260" height="160"
+						style="border: 2px solid #7f8fa6; float: left;">
+					<h4>Modelo 02</h4>
+					<ul>
+						<li>Necessário o upload de uma imagem para compor o painel</li>
+						<li>Possui um tema principal com duas linhas.</li>
+						<li>Descrição com uma linha.</li>
+					</ul>
 				</div>
 
+			</a> <a href="gerar_modelo03.php">
+				<div class="modelo">
+					<img border="0" alt="aviso03" src="./imagens/aviso03.jpg"
+						width="260" height="160"
+						style="border: 2px solid #7f8fa6; float: left;">
+					<h4>Modelo 03</h4>
+					<ul>
+						<li>Necessário o upload de uma imagem para compor o painel</li>
+						<li>Possui um tema principal com uma linha.</li>
+						<li>Descrição com três linhas.</li>
+					</ul>
+				</div>
+			</a>
 
-			</section>
 		</div>
 	</div>
 </body>

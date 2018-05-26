@@ -324,7 +324,7 @@ input[type=submit] {
 			<div class="row">
 				<nav id="menu-opcoes" class="pull-right">
 					<ul>
-						<li><a href="./principal_adm.php">Página inicial</a></li>
+						<li><a href="./principal_adm.php">Página Inicial</a></li>
 						<li><a href="./modelos.php">Criar avisos</a></li>
 						<li><a href="./galeria.php">Galeria</a></li>
 						<li><a href="./ajuda.php">Ajuda</a></li>
