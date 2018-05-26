@@ -1,13 +1,13 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_logged_in'])) {
+if (! isset($_SESSION['user_logged_in'])) {
     header('location:../index_login.php');
     exit();
 }
 
-require_once( 'func_image01.php' );
+require_once ('func_image01.php');
 // if form not submitted, show it and bail
-if ( ! isset( $_GET['title_text'] ) && ! isset( $_GET['description_text'] ) ) {
+if (! isset($_GET['title_text']) && ! isset($_GET['description_text'])) {
     ?>
 
 <html>
@@ -84,30 +84,95 @@ header .header-black {
 	padding-top: 10px;
 }
 
-	#parte01 {
-				float: left;
-				width:33%;
-				/*background-color: green;*/
-				position: relative;
-				top: 50px;
-				left: 50px;
-			}
+#parte01 {
+	float: left;
+	width: 50%;
+	/*background-color: green;*/
+	position: relative;
+	top: 100px;
+	padding: 15px;
+}
 
-			#parte02 {
-				float: left;
-				width:33%;
-				/*background-color: black;*/
-				position: relative;
-				top: 50px;
-				left: 205px;
-			}
-			
-			.container {
-				margin: 0 auto;
-				width: 940px;
-			}
+#parte02 {
+	float: left;
+	width: 50%;
+	/*background-color: black;*/
+	position: relative;
+	top: 86px;
+	left: 20px;
+	padding: 15px;
+}
 
+.container {
+	margin: 0 auto;
+	width: 940px;
+}
 
+.fundo {
+	width: 940px;
+	background-color: #dcdde1;
+	margin-bottom: 20px;
+}
+
+input[type=text]:hover, textarea:hover {
+	background: #ffffff;
+	border: 1px solid #990000;
+}
+
+input[type=submit] {
+	background: #006699;
+	color: #ffffff;
+}
+
+.cor1 {
+	height: 45px;
+	background-color: #520080;
+	color: white;
+	margin-top: 15px;
+	padding: 7px;
+	font-size: 17px;
+}
+
+.cor2 {
+	height: 45px;
+	background-color: #e59500;
+	margin-top: 15px;
+	padding: 7px;
+	font-size: 17px;
+}
+
+.cor3 {
+	height: 45px;
+	background-color: #00bc98;
+	margin-top: 15px;
+	padding: 7px;
+	font-size: 17px;
+}
+
+.cor4 {
+	height: 45px;
+	background-color: #a564ff;
+	margin-top: 15px;
+	padding: 7px;
+	font-size: 17px;
+}
+
+.cor5 {
+	height: 45px;
+	background-color: 006fff;
+	margin-top: 15px;
+	padding: 7px;
+	font-size: 17px;
+}
+
+select {
+	background-color: gray;
+	border: 1px solid gray;
+	font-size: 16px;
+	height: 25px;
+	width: 268px;
+	color: white;
+}
 </style>
 </head>
 <body>
@@ -121,8 +186,8 @@ header .header-black {
 				<div class="pull-right">
 					<!-- alinha informação para direita, até limites do container -->
                 		<?php
-                echo "Olá, " . $_SESSION['user_login'] . " | <a href='logout.php'>Encerrar Sessão</a>";
-                ?>
+    echo "Olá, " . $_SESSION['user_login'] . " | <a href='logout.php'>Encerrar Sessão</a>";
+    ?>
                 	</div>
 			</div>
 		</div>
@@ -150,109 +215,128 @@ header .header-black {
 		</div>
 
 	</header>
-	
-	
 
-		<div id="main" class="container">
+
+
+	<div id="main" class="container">
 		<!-- Conteúdo principal -->
-		
-			<form>
-				<div id="parte01">
 
-					<select name="category_text">
-						<option>DIREÇÃO GERAL/DIRAP</option>
-						<option>DIREN</option>
-						<option>ENSINO</option>
-						<option>ESTÁGIO</option>
-						<option>EXTENSÃO</option>
-						<option>PESQUISA</option>
-					</select>
+		<form>
+			<div id="parte01" class="fundo">
 
-					<select name="sub_category_text">
-						<option>Auxílios</option>
-						<option>Avisos</option>
-						<option>Calendário Acadêmico</option>
-						<option>Cardápio</option>
-						<option>Cursos</option>
-						<option>Informações Acadêmicas</option>
-						<option>Editais Internos</option>
-						<option>Editais Externos</option>
-						<option>Eixo/ Meio Ambiente</option>
-						<option>Eixo/ Indústria</option>
-						<option>Eixo/ Computação</option>
-						<option>Esporte</option>
-						<option>Eventos</option>
-						<option>Feriados</option>
-						<option>Imprensa</option>
-						<option>Infraestrutura</option>
-						<option>Jardineira</option>
-						<option>Mestrado</option>
-						<option>Monitoria</option>
-						<option>Pagamento de bolsas/auxílios</option>
-						<option>Pedagogia</option>
-						<option>Pesquisa</option>
-						<option>Programas</option>
-						<option>Projetos</option>
-						<option>Pontos Facultativos</option>
-						<option>Recesso Escolar</option>
-						<option>Restaurante Acadêmico</option>
-						<option>Saúde</option>
-						<option>Site</option>
-						<option>Superior</option>
-						<option>Técnico</option>
-						<option>Outros</option>
-					</select>
 
-					<!--<p>Título da Vaga:<br /><input name="sub_category_text" /></p>-->
-					<p>Título:<br /><textarea wrap="hard" rows="2" cols="27" maxlength="60" name="title_text" /></textarea></p>
-					<p>Descrição:<br /><textarea wrap="hard" rows="3" cols="45" maxlength="140"name="description_text" /></textarea></p>
-					<p><input type="submit" style="width:150;height:30" value="Gerar Imagem"/></p>
 
-				</div>
-			</form>
-		
-	
-			<div id="parte02">
-				Imagem de plano de fundo:<br><br>
-				<img width="400" height="250" src="imagens/fundos.png" />
+
+				<h5>Categorias</h5>
+				<select name="category_text" style="width: 220px">
+					<option>DIREÇÃO GERAL/DIRAP</option>
+					<option>DIREN</option>
+					<option>ENSINO</option>
+					<option>ESTÁGIO</option>
+					<option>EXTENSÃO</option>
+					<option>PESQUISA</option>
+				</select>
+
+				<h5>Sub-categorias</h5>
+				<select name="sub_category_text" style="width: 220px">
+					<option>Auxílios</option>
+					<option>Avisos</option>
+					<option>Calendário Acadêmico</option>
+					<option>Cardápio</option>
+					<option>Cursos</option>
+					<option>Informações Acadêmicas</option>
+					<option>Editais Internos</option>
+					<option>Editais Externos</option>
+					<option>Eixo/ Meio Ambiente</option>
+					<option>Eixo/ Indústria</option>
+					<option>Eixo/ Computação</option>
+					<option>Esporte</option>
+					<option>Eventos</option>
+					<option>Feriados</option>
+					<option>Imprensa</option>
+					<option>Infraestrutura</option>
+					<option>Jardineira</option>
+					<option>Mestrado</option>
+					<option>Monitoria</option>
+					<option>Pagamento de bolsas/auxílios</option>
+					<option>Pedagogia</option>
+					<option>Pesquisa</option>
+					<option>Programas</option>
+					<option>Projetos</option>
+					<option>Pontos Facultativos</option>
+					<option>Recesso Escolar</option>
+					<option>Restaurante Acadêmico</option>
+					<option>Saúde</option>
+					<option>Site</option>
+					<option>Superior</option>
+					<option>Técnico</option>
+					<option>Outros</option>
+				</select>
+
+				<h5>Tema</h5>
+				<textarea wrap="hard" rows="2" cols="27" maxlength="60"
+					name="title_text" /></textarea>
+
+
+				<h5>Descrição</h5>
+				<textarea wrap="hard" rows="3" cols="45" maxlength="140"
+					name="description_text" /></textarea>
+				<br> <br> <input type="submit" style="width: 150; height: 30"
+					value="Gerar Imagem" />
+
+
 			</div>
-		
+		</form>
+
+
+		<div id="parte02">
+			<h5>Cor de fundo</h5>
+
+			<div class="cor1">DIREÇÃO GERAL/DIRAP</div>
+			<div class="cor2">DIREN</div>
+			<div class="cor1">ENSINO</div>
+			<div class="cor4">ESTÁGIO</div>
+			<div class="cor3">EXTENSÃO</div>
+			<div class="cor5">PESQUISA</div>
+
 		</div>
-		
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	
-	</body>
+
+	</div>
+
+
+
+</body>
 </html>
 
 <?php
-	die();
+    die();
 }
 
 // get form submission (or defaults)
-$category_text    = isset( $_GET['category_text'] )    ? $_GET['category_text']    : 'IFCE - Maracanau'; 
-$sub_category_text    = isset( $_GET['sub_category_text'] )    ? $_GET['sub_category_text']    : 'IFCE - Maracanau'; 
-$title_text    	= isset( $_GET['title_text'] )    ? $_GET['title_text']    : 'IFCE - Maracanau'; 
-$description_text = isset( $_GET['description_text'] ) ? $_GET['description_text'] : 'IFCE - Maracanau'; 
-//$filename    		= memegen_sanitize( $description_text ? $description_text : $title_text );
+$category_text = isset($_GET['category_text']) ? $_GET['category_text'] : 'IFCE - Maracanau';
+$sub_category_text = isset($_GET['sub_category_text']) ? $_GET['sub_category_text'] : 'IFCE - Maracanau';
+$title_text = isset($_GET['title_text']) ? $_GET['title_text'] : 'IFCE - Maracanau';
+$description_text = isset($_GET['description_text']) ? $_GET['description_text'] : 'IFCE - Maracanau';
+// $filename = memegen_sanitize( $description_text ? $description_text : $title_text );
 
 $args = array(
-	'category_text'    => $category_text,
-	'sub_category_text'    => $sub_category_text,
-	'title_text'    => $title_text,
-	'description_text' => $description_text,
-	'filename'    => $filename,
-	'font'        => dirname(__FILE__) .'/font/OpenSans-ExtraBold.ttf',
-	'font_sub'    => dirname(__FILE__) .'/font/OpenSans-Light.ttf',//'/sans.ttf',
-	'imagebase'    => dirname(__FILE__) .'/imagens/imagem_gerada.jpg',
-	'sub_category_textsize'    => 24,
-	'title_textsize'    => 75,
-	'descrition_textsize'    => 48,
-	'textfit'     => true,
-	'padding'     => 70,
-	'margin'      => 10,	
+    'category_text' => $category_text,
+    'sub_category_text' => $sub_category_text,
+    'title_text' => $title_text,
+    'description_text' => $description_text,
+    'filename' => $filename,
+    'font' => dirname(__FILE__) . '/font/OpenSans-ExtraBold.ttf',
+    'font_sub' => dirname(__FILE__) . '/font/OpenSans-Light.ttf', // '/sans.ttf',
+    'imagebase' => dirname(__FILE__) . '/imagens/imagem_gerada.jpg',
+    'sub_category_textsize' => 24,
+    'title_textsize' => 75,
+    'descrition_textsize' => 48,
+    'textfit' => true,
+    'padding' => 70,
+    'margin' => 10
 );
 
-// create and output image 
-generate_image( $args );
+// create and output image
+generate_image($args);
 
 ?>

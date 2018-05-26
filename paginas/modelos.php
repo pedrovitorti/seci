@@ -101,14 +101,12 @@ header .header-black {
 	margin-bottom: 20px;
 }
 
-
-
 ul {
 	padding-left: 300px;
 }
 
 h4 {
-    padding-top:15px;
+	padding-top: 15px;
 	padding-left: 300px;
 }
 </style>
