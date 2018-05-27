@@ -106,7 +106,7 @@ header .header-black {
 	width: 50%;
 	/*background-color: black;*/
 	position: relative;
-	top:-20px;
+	top: -20px;
 	left: 20px;
 	padding: 15px;
 }
@@ -115,7 +115,7 @@ h4 {
 	background-color: gray;
 	width: 100%;
 	padding: 5px;
-	
+	margin-bottom: 20px;
 }
 
 .container {
@@ -232,107 +232,111 @@ select {
 	</header>
 
 	<!-- Conteúdo do cabeçalho -->
-<div class="container">
-	<div id="main" class="container">
-		<!-- Conteúdo principal --><br><br><br><br><br>
-	<h4>Passo 01 - Enviar imagem do painel</h4>
-		<div id="parte00" class="fundo">
-		
-			<form action="./gerar_image_02/enviar02.php" method="POST"
-				enctype="multipart/form-data">
-				Imagem JPG: <input type="file" name="fileUpload1"><input
-					type="hidden" name="nomeImg1" value="imagem"><br> <input
-					type="submit" style="width: 150; height: 30" id="send"
-					value="Enviar">
-			</form>
-		</div>
-		<br> <br>
-		<form>
-		
-		<h4>Passo 02 - Configurar Imagem</h4>
-			<div id="parte01" class="fundo">
-				
+	<div class="container">
+		<div id="main" class="container">
+			<!-- Conteúdo principal -->
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<h4>Passo 01 - Enviar imagem do painel</h4>
+			<div id="parte00" class="fundo">
 
-				<h5>Categorias</h5>
-				<select name="category_text">
-					<option>DIREÇÃO GERAL/DIRAP</option>
-					<option>DIREN</option>
-					<option>ENSINO</option>
-					<option>ESTÁGIO</option>
-					<option>EXTENSÃO</option>
-					<option>PESQUISA</option>
-				</select>
-				
-				<h5>Sub-categorias</h5>
-				<select name="sub_category_text">
-					<option>Auxílios</option>
-					<option>Avisos</option>
-					<option>Calendário Acadêmico</option>
-					<option>Cardápio</option>
-					<option>Cursos</option>
-					<option>Informações Acadêmicas</option>
-					<option>Editais Internos</option>
-					<option>Editais Externos</option>
-					<option>Eixo/ Meio Ambiente</option>
-					<option>Eixo/ Indústria</option>
-					<option>Eixo/ Computação</option>
-					<option>Esporte</option>
-					<option>Eventos</option>
-					<option>Feriados</option>
-					<option>Imprensa</option>
-					<option>Infraestrutura</option>
-					<option>Jardineira</option>
-					<option>Mestrado</option>
-					<option>Monitoria</option>
-					<option>Pagamento de bolsas/auxílios</option>
-					<option>Pedagogia</option>
-					<option>Pesquisa</option>
-					<option>Programas</option>
-					<option>Projetos</option>
-					<option>Pontos Facultativos</option>
-					<option>Recesso Escolar</option>
-					<option>Restaurante Acadêmico</option>
-					<option>Saúde</option>
-					<option>Site</option>
-					<option>Superior</option>
-					<option>Técnico</option>
-					<option>Outros</option>
-				</select>
+				<form action="./gerar_image_02/enviar02.php" method="POST"
+					enctype="multipart/form-data">
+					Imagem JPG: <input type="file" name="fileUpload1"><input
+						type="hidden" name="nomeImg1" value="imagem"><br> <input
+						type="submit" style="width: 150; height: 30" id="send"
+						value="Enviar">
+				</form>
+			</div>
+			<br> <br>
+			<form>
 
-				<!--<p>Título da Vaga:<br /><input name="sub_category_text" /></p>-->
-			
+				<h4>Passo 02 - Configurar Imagem</h4>
+				<div id="parte01" class="fundo">
+
+
+					<h5>Categorias</h5>
+					<select name="category_text">
+						<option>DIREÇÃO GERAL/DIRAP</option>
+						<option>DIREN</option>
+						<option>ENSINO</option>
+						<option>ESTÁGIO</option>
+						<option>EXTENSÃO</option>
+						<option>PESQUISA</option>
+					</select>
+
+					<h5>Sub-categorias</h5>
+					<select name="sub_category_text">
+						<option>Auxílios</option>
+						<option>Avisos</option>
+						<option>Calendário Acadêmico</option>
+						<option>Cardápio</option>
+						<option>Cursos</option>
+						<option>Informações Acadêmicas</option>
+						<option>Editais Internos</option>
+						<option>Editais Externos</option>
+						<option>Eixo/ Meio Ambiente</option>
+						<option>Eixo/ Indústria</option>
+						<option>Eixo/ Computação</option>
+						<option>Esporte</option>
+						<option>Eventos</option>
+						<option>Feriados</option>
+						<option>Imprensa</option>
+						<option>Infraestrutura</option>
+						<option>Jardineira</option>
+						<option>Mestrado</option>
+						<option>Monitoria</option>
+						<option>Pagamento de bolsas/auxílios</option>
+						<option>Pedagogia</option>
+						<option>Pesquisa</option>
+						<option>Programas</option>
+						<option>Projetos</option>
+						<option>Pontos Facultativos</option>
+						<option>Recesso Escolar</option>
+						<option>Restaurante Acadêmico</option>
+						<option>Saúde</option>
+						<option>Site</option>
+						<option>Superior</option>
+						<option>Técnico</option>
+						<option>Outros</option>
+					</select>
+
+					<!--<p>Título da Vaga:<br /><input name="sub_category_text" /></p>-->
+
 					<h5>Título</h5>
 					<textarea wrap="hard" rows="2" cols="31" maxlength="62"
 						name="title_text" /></textarea>
-				
-				
+
+
 					<h5>Descrição</h5>
 					<textarea wrap="hard" rows="1" cols="50" maxlength="47"
-						name="description_text" /></textarea><br><br>
-				
-				
-					<input type="submit" style="width: 150; height: 30"
+						name="description_text" /></textarea>
+					<br>
+					<br> <input type="submit" style="width: 150; height: 30"
 						value="Gerar Imagem" />
-				
 
+
+				</div>
+			</form>
+
+
+			<div id="parte02">
+				<h5>Cor de fundo</h5>
+
+				<div class="cor1">DIREÇÃO GERAL/DIRAP</div>
+				<div class="cor2">DIREN</div>
+				<div class="cor1">ENSINO</div>
+				<div class="cor4">ESTÁGIO</div>
+				<div class="cor3">EXTENSÃO</div>
+				<div class="cor5">PESQUISA</div>
 			</div>
-		</form>
 
-
-		<div id="parte02">
-			<h5>Cor de fundo</h5>
-
-			<div class="cor1">DIREÇÃO GERAL/DIRAP</div>
-			<div class="cor2">DIREN</div>
-			<div class="cor1">ENSINO</div>
-			<div class="cor4">ESTÁGIO</div>
-			<div class="cor3">EXTENSÃO</div>
-			<div class="cor5">PESQUISA</div>
 		</div>
-
 	</div>
-</div>
-	
+
 
 </body>
 </html>

@@ -10,7 +10,6 @@ require_once ('func_image03.php');
 if (! isset($_GET['title_text']) && ! isset($_GET['description_text'])) {
     ?>
 
-
 <html>
 <head>
 <title>SECI - Sistema Eletrônico de Comunicação Interna</title>
@@ -89,32 +88,34 @@ header .header-black {
 	width: 43%;
 	/*background-color: green;*/
 	position: relative;
-	top: 50px;
-	left: 50px;
+	padding: 15px;
+	width: 100%;
 }
 
 #parte01 {
 	float: left;
-	width: 43%;
+	width: 50%;
 	/*background-color: green;*/
 	position: relative;
-	top: 50px;
-	left: 50px;
+	top: 1px;
+	padding: 15px;
 }
 
 #parte02 {
 	float: left;
-	width: 33%;
+	width: 50%;
 	/*background-color: black;*/
 	position: relative;
-	top: 50px;
-	left: 180px;
+	top: -20px;
+	left: 20px;
+	padding: 15px;
 }
 
 h4 {
-	background-color: #9a9595;
-	width: 200%;
+	background-color: gray;
+	width: 100%;
 	padding: 5px;
+	margin-bottom: 20px;
 }
 
 .container {
@@ -130,6 +131,62 @@ input[type=text]:hover, textarea:hover {
 input[type=submit] {
 	background: #006699;
 	color: #ffffff;
+}
+
+.cor1 {
+	height: 45px;
+	background-color: #520080;
+	color: white;
+	margin-top: 15px;
+	padding: 7px;
+	font-size: 17px;
+}
+
+.cor2 {
+	height: 45px;
+	background-color: #e59500;
+	margin-top: 15px;
+	padding: 7px;
+	font-size: 17px;
+}
+
+.cor3 {
+	height: 45px;
+	background-color: #00bc98;
+	margin-top: 15px;
+	padding: 7px;
+	font-size: 17px;
+}
+
+.cor4 {
+	height: 45px;
+	background-color: #a564ff;
+	margin-top: 15px;
+	padding: 7px;
+	font-size: 17px;
+}
+
+.cor5 {
+	height: 45px;
+	background-color: 006fff;
+	margin-top: 15px;
+	padding: 7px;
+	font-size: 17px;
+}
+
+select {
+	background-color: gray;
+	border: 1px solid gray;
+	font-size: 16px;
+	height: 25px;
+	width: 268px;
+	color: white;
+}
+
+.fundo {
+	width: 940px;
+	background-color: #dcdde1;
+	margin-bottom: -30px;
 }
 </style>
 </head>
@@ -175,128 +232,109 @@ input[type=submit] {
 	</header>
 
 	<!-- Conteúdo do cabeçalho -->
-
-	<div id="main" class="container">
-		<!-- Conteúdo principal -->
-
-		<div id="parte00">
+	<div class="container">
+		<div id="main" class="container">
+			<!-- Conteúdo principal -->
+			<br> <br> <br> <br> <br>
 			<h4>Passo 01 - Enviar imagem do painel</h4>
-			<form action="./gerar_image_03/enviar03.php" method="POST"
-				enctype="multipart/form-data">
-				Imagem JPG: <input type="file" name="fileUpload1"><input
-					type="hidden" name="nomeImg1" value="imagem"><br> <input
-					type="submit" style="width: 150; height: 30" id="send"
-					value="Enviar">
-			</form>
-		</div>
-		<br>
-		<br>
-		<form>
-			<div id="parte01">
+			<div id="parte00" class="fundo">
+
+				<form action="./gerar_image_02/enviar02.php" method="POST"
+					enctype="multipart/form-data">
+					Imagem JPG: <input type="file" name="fileUpload1"><input
+						type="hidden" name="nomeImg1" value="imagem"><br> <input
+						type="submit" style="width: 150; height: 30" id="send"
+						value="Enviar">
+				</form>
+			</div>
+			<br> <br>
+			<form>
+
 				<h4>Passo 02 - Configurar Imagem</h4>
+				<div id="parte01" class="fundo">
 
 
-				<select name="category_text">
-					<option>DIREÇÃO GERAL/DIRAP</option>
-					<option>DIREN</option>
-					<option>ENSINO</option>
-					<option>ESTÁGIO</option>
-					<option>EXTENSÃO</option>
-					<option>PESQUISA</option>
-				</select> <select name="sub_category_text">
-					<option>Auxílios</option>
-					<option>Avisos</option>
-					<option>Calendário Acadêmico</option>
-					<option>Cardápio</option>
-					<option>Cursos</option>
-					<option>Informações Acadêmicas</option>
-					<option>Editais Internos</option>
-					<option>Editais Externos</option>
-					<option>Eixo/ Meio Ambiente</option>
-					<option>Eixo/ Indústria</option>
-					<option>Eixo/ Computação</option>
-					<option>Esporte</option>
-					<option>Eventos</option>
-					<option>Feriados</option>
-					<option>Imprensa</option>
-					<option>Infraestrutura</option>
-					<option>Jardineira</option>
-					<option>Mestrado</option>
-					<option>Monitoria</option>
-					<option>Pagamento de bolsas/auxílios</option>
-					<option>Pedagogia</option>
-					<option>Pesquisa</option>
-					<option>Programas</option>
-					<option>Projetos</option>
-					<option>Pontos Facultativos</option>
-					<option>Recesso Escolar</option>
-					<option>Restaurante Acadêmico</option>
-					<option>Saúde</option>
-					<option>Site</option>
-					<option>Superior</option>
-					<option>Técnico</option>
-					<option>Outros</option>
-				</select>
+					<h5>Categorias</h5>
+					<select name="category_text">
+						<option>DIREÇÃO GERAL/DIRAP</option>
+						<option>DIREN</option>
+						<option>ENSINO</option>
+						<option>ESTÁGIO</option>
+						<option>EXTENSÃO</option>
+						<option>PESQUISA</option>
+					</select>
 
-				<!--<p>Título da Vaga:<br /><input name="sub_category_text" /></p>-->
-				<p>
-					Título:<br />
+					<h5>Sub-categorias</h5>
+					<select name="sub_category_text">
+						<option>Auxílios</option>
+						<option>Avisos</option>
+						<option>Calendário Acadêmico</option>
+						<option>Cardápio</option>
+						<option>Cursos</option>
+						<option>Informações Acadêmicas</option>
+						<option>Editais Internos</option>
+						<option>Editais Externos</option>
+						<option>Eixo/ Meio Ambiente</option>
+						<option>Eixo/ Indústria</option>
+						<option>Eixo/ Computação</option>
+						<option>Esporte</option>
+						<option>Eventos</option>
+						<option>Feriados</option>
+						<option>Imprensa</option>
+						<option>Infraestrutura</option>
+						<option>Jardineira</option>
+						<option>Mestrado</option>
+						<option>Monitoria</option>
+						<option>Pagamento de bolsas/auxílios</option>
+						<option>Pedagogia</option>
+						<option>Pesquisa</option>
+						<option>Programas</option>
+						<option>Projetos</option>
+						<option>Pontos Facultativos</option>
+						<option>Recesso Escolar</option>
+						<option>Restaurante Acadêmico</option>
+						<option>Saúde</option>
+						<option>Site</option>
+						<option>Superior</option>
+						<option>Técnico</option>
+						<option>Outros</option>
+					</select>
+
+					<!--<p>Título da Vaga:<br /><input name="sub_category_text" /></p>-->
+
+					<h5>Título</h5>
 					<textarea wrap="hard" rows="1" cols="35" maxlength="34"
 						name="title_text" /></textarea>
-				</p>
-				<p>
-					Descrição:<br />
+
+
+					<h5>Descrição</h5>
 					<textarea wrap="hard" rows="3" cols="50" maxlength="155"
 						name="description_text" /></textarea>
-				</p>
-				<p>
+					<br> <br> 
+					
 					<input type="submit" style="width: 150; height: 30"
 						value="Gerar Imagem" />
-				</p>
 
+
+				</div>
+			</form>
+
+
+			<div id="parte02">
+				<h5>Cor de fundo</h5>
+
+				<div class="cor1">DIREÇÃO GERAL/DIRAP</div>
+				<div class="cor2">DIREN</div>
+				<div class="cor1">ENSINO</div>
+				<div class="cor4">ESTÁGIO</div>
+				<div class="cor3">EXTENSÃO</div>
+				<div class="cor5">PESQUISA</div>
 			</div>
-		</form>
 
-
-		<div id="parte02">
-			<br>
-			<br>
-			<br>Imagem de plano de fundo:<br>
-			<br> <img width="400" height="250" src="imagens/fundos.png" />
 		</div>
-
 	</div>
 
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<footer id="footer">
 
-		<center>
-			<span class="fonte_menus">© Copyright 2017 DEPPI - Departamento de
-				Extensão, Pesquisa, Pós-graduação e Inovação</span>
-		</center>
-		</div>
-	</footer>
 </body>
 </html>
 
@@ -319,7 +357,7 @@ $args = array(
     'filename' => $filename,
     'font' => dirname(__FILE__) . '/font/OpenSans-ExtraBold.ttf',
     'font_sub' => dirname(__FILE__) . '/font/OpenSans-Light.ttf', // '/sans.ttf',
-    'imagebase' => dirname(__FILE__) . '/font/imagem_gerada.jpg',
+    'imagebase' => dirname(__FILE__) . '/imagens/imagem_gerada.jpg',
     'sub_category_textsize' => 24,
     'title_textsize' => 55,
     'descrition_textsize' => 38,
@@ -328,8 +366,7 @@ $args = array(
     'margin' => 10
 );
 
-// create and output image 
-generate_image( $args );
+// create and output image
+generate_image($args);
 
 ?>
-	

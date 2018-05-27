@@ -98,7 +98,7 @@ header .header-black {
 	width: 50%;
 	/*background-color: black;*/
 	position: relative;
-	top: 86px;
+	top: 75px;
 	left: 20px;
 	padding: 15px;
 }
