@@ -88,32 +88,34 @@ header .header-black {
 	width: 43%;
 	/*background-color: green;*/
 	position: relative;
-	top: 50px;
-	left: 50px;
+	padding: 15px;
+	width: 100%;
 }
 
 #parte01 {
 	float: left;
-	width: 43%;
+	width: 50%;
 	/*background-color: green;*/
 	position: relative;
-	top: 50px;
-	left: 50px;
+	top: 1px;
+	padding: 15px;
 }
 
 #parte02 {
 	float: left;
-	width: 33%;
+	width: 50%;
 	/*background-color: black;*/
 	position: relative;
-	top: 50px;
-	left: 180px;
+	top:-20px;
+	left: 20px;
+	padding: 15px;
 }
 
 h4 {
-	background-color: #9a9595;
-	width: 200%;
+	background-color: gray;
+	width: 100%;
 	padding: 5px;
+	
 }
 
 .container {
@@ -129,6 +131,62 @@ input[type=text]:hover, textarea:hover {
 input[type=submit] {
 	background: #006699;
 	color: #ffffff;
+}
+
+.cor1 {
+	height: 45px;
+	background-color: #520080;
+	color: white;
+	margin-top: 15px;
+	padding: 7px;
+	font-size: 17px;
+}
+
+.cor2 {
+	height: 45px;
+	background-color: #e59500;
+	margin-top: 15px;
+	padding: 7px;
+	font-size: 17px;
+}
+
+.cor3 {
+	height: 45px;
+	background-color: #00bc98;
+	margin-top: 15px;
+	padding: 7px;
+	font-size: 17px;
+}
+
+.cor4 {
+	height: 45px;
+	background-color: #a564ff;
+	margin-top: 15px;
+	padding: 7px;
+	font-size: 17px;
+}
+
+.cor5 {
+	height: 45px;
+	background-color: 006fff;
+	margin-top: 15px;
+	padding: 7px;
+	font-size: 17px;
+}
+
+select {
+	background-color: gray;
+	border: 1px solid gray;
+	font-size: 16px;
+	height: 25px;
+	width: 268px;
+	color: white;
+}
+
+.fundo {
+	width: 940px;
+	background-color: #dcdde1;
+	margin-bottom: -30px;
 }
 </style>
 </head>
@@ -174,12 +232,12 @@ input[type=submit] {
 	</header>
 
 	<!-- Conteúdo do cabeçalho -->
-
+<div class="container">
 	<div id="main" class="container">
-		<!-- Conteúdo principal -->
-
-		<div id="parte00">
-			<h4>Passo 01 - Enviar imagem do painel</h4>
+		<!-- Conteúdo principal --><br><br><br><br><br>
+	<h4>Passo 01 - Enviar imagem do painel</h4>
+		<div id="parte00" class="fundo">
+		
 			<form action="./gerar_image_02/enviar02.php" method="POST"
 				enctype="multipart/form-data">
 				Imagem JPG: <input type="file" name="fileUpload1"><input
@@ -190,10 +248,12 @@ input[type=submit] {
 		</div>
 		<br> <br>
 		<form>
-			<div id="parte01">
-				<h4>Passo 02 - Configurar Imagem</h4>
+		
+		<h4>Passo 02 - Configurar Imagem</h4>
+			<div id="parte01" class="fundo">
+				
 
-
+				<h5>Categorias</h5>
 				<select name="category_text">
 					<option>DIREÇÃO GERAL/DIRAP</option>
 					<option>DIREN</option>
@@ -201,7 +261,10 @@ input[type=submit] {
 					<option>ESTÁGIO</option>
 					<option>EXTENSÃO</option>
 					<option>PESQUISA</option>
-				</select> <select name="sub_category_text">
+				</select>
+				
+				<h5>Sub-categorias</h5>
+				<select name="sub_category_text">
 					<option>Auxílios</option>
 					<option>Avisos</option>
 					<option>Calendário Acadêmico</option>
@@ -237,54 +300,39 @@ input[type=submit] {
 				</select>
 
 				<!--<p>Título da Vaga:<br /><input name="sub_category_text" /></p>-->
-				<p>
-					Título:<br />
+			
+					<h5>Título</h5>
 					<textarea wrap="hard" rows="2" cols="31" maxlength="62"
 						name="title_text" /></textarea>
-				</p>
-				<p>
-					Descrição:<br />
+				
+				
+					<h5>Descrição</h5>
 					<textarea wrap="hard" rows="1" cols="50" maxlength="47"
-						name="description_text" /></textarea>
-				</p>
-				<p>
+						name="description_text" /></textarea><br><br>
+				
+				
 					<input type="submit" style="width: 150; height: 30"
 						value="Gerar Imagem" />
-				</p>
+				
 
 			</div>
 		</form>
 
 
 		<div id="parte02">
-			<br> <br> <br>Imagem de plano de fundo:<br> <br> <img width="400"
-				height="250" src="imagens/fundos.png" />
+			<h5>Cor de fundo</h5>
+
+			<div class="cor1">DIREÇÃO GERAL/DIRAP</div>
+			<div class="cor2">DIREN</div>
+			<div class="cor1">ENSINO</div>
+			<div class="cor4">ESTÁGIO</div>
+			<div class="cor3">EXTENSÃO</div>
+			<div class="cor5">PESQUISA</div>
 		</div>
 
 	</div>
-
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+</div>
+	
 
 </body>
 </html>
