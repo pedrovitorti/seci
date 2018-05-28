@@ -5,10 +5,33 @@ if (! isset($_SESSION['user_logged_in'])) {
     exit();
 }
 
+if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postgres password=1"))) {
+    print "Não foi possível estabelecer uma conexão com o banco de dados.";
+} else {
+    
+    // pegando categorias do banco de dados
+    $sql1 = pg_query("SELECT nome FROM categoria;") or die("Erro no comando SQL");
+    
+    // pegando subcategorias do banco de dados
+    $sql2 = pg_query("SELECT nome FROM subcategoria;") or die("Erro no comando SQL");
+    
+    // TABELA: categoria
+    if (! $sql1) {
+        echo "Consulta não foi executada!";
+    }
+    
+    // TABELA: subcategoria
+    if (! $sql2) {
+        echo "Consulta não foi executada!";
+    }
+    
+    // $_SESSION['qtd_categoria'] = pg_num_rows($sql);
+}
+
 require_once ('func_image02.php');
 // if form not submitted, show it and bail
 if (! isset($_GET['title_text']) && ! isset($_GET['description_text'])) {
-    ?>
+?>
 
 <html>
 <head>
@@ -260,59 +283,91 @@ select {
 
 					<h5>Categorias</h5>
 					<select name="category_text">
-						<option>DIREÇÃO GERAL/DIRAP</option>
-						<option>DIREN</option>
-						<option>ENSINO</option>
-						<option>ESTÁGIO</option>
-						<option>EXTENSÃO</option>
-						<option>PESQUISA</option>
+    					<!-- Categorias valores do banco de dados -->
+        				<?php
+                            $i = 0;
+                            while ($row = pg_fetch_array($sql1)) {
+                        ?>
+        					<option><?php echo $_SESSION['categoria'.$i] = $row[0]; ?></option>
+           				<?php
+                            $i++;
+                            }
+                        ?>
+          
+           				<!-- Categorias direto no html -->
+    					<!-- 
+    					
+    					<option>DIREÇÃO GERAL/DIRAP</option>
+    					<option>DIREN</option>
+    					<option>ENSINO</option>
+    					<option>ESTÁGIO</option>
+    					<option>EXTENSÃO</option>
+    					<option>PESQUISA</option>
+    					
+    					-->
 					</select>
 
 					<h5>Sub-categorias</h5>
 					<select name="sub_category_text">
-						<option>Auxílios</option>
-						<option>Avisos</option>
-						<option>Calendário Acadêmico</option>
-						<option>Cardápio</option>
-						<option>Cursos</option>
-						<option>Informações Acadêmicas</option>
-						<option>Editais Internos</option>
-						<option>Editais Externos</option>
-						<option>Eixo/ Meio Ambiente</option>
-						<option>Eixo/ Indústria</option>
-						<option>Eixo/ Computação</option>
-						<option>Esporte</option>
-						<option>Eventos</option>
-						<option>Feriados</option>
-						<option>Imprensa</option>
-						<option>Infraestrutura</option>
-						<option>Jardineira</option>
-						<option>Mestrado</option>
-						<option>Monitoria</option>
-						<option>Pagamento de bolsas/auxílios</option>
-						<option>Pedagogia</option>
-						<option>Pesquisa</option>
-						<option>Programas</option>
-						<option>Projetos</option>
-						<option>Pontos Facultativos</option>
-						<option>Recesso Escolar</option>
-						<option>Restaurante Acadêmico</option>
-						<option>Saúde</option>
-						<option>Site</option>
-						<option>Superior</option>
-						<option>Técnico</option>
-						<option>Outros</option>
+    					<!-- Subategorias valores do banco de dados -->
+    					<?php
+                            $i = 0;
+                            while ($row = pg_fetch_array($sql2)) {
+                        ?>
+        					<option><?php echo $_SESSION['subcategoria'.$i] = $row[0]; ?></option>
+           				<?php
+                            $i++;
+                            }
+                        ?>
+    					
+    					<!-- Subategorias direto no html -->
+    					<!--  
+    					
+    					<option>Auxílios</option>
+    					<option>Avisos</option>
+    					<option>Calendário Acadêmico</option>
+    					<option>Cardápio</option>
+    					<option>Cursos</option>
+    					<option>Informações Acadêmicas</option>
+    					<option>Editais Internos</option>
+    					<option>Editais Externos</option>
+    					<option>Eixo/ Meio Ambiente</option>
+    					<option>Eixo/ Indústria</option>
+    					<option>Eixo/ Computação</option>
+    					<option>Esporte</option>
+    					<option>Eventos</option>
+    					<option>Feriados</option>
+    					<option>Imprensa</option>
+    					<option>Infraestrutura</option>
+    					<option>Jardineira</option>
+    					<option>Mestrado</option>
+    					<option>Monitoria</option>
+    					<option>Pagamento de bolsas/auxílios</option>
+    					<option>Pedagogia</option>
+    					<option>Pesquisa</option>
+    					<option>Programas</option>
+    					<option>Projetos</option>
+    					<option>Pontos Facultativos</option>
+    					<option>Recesso Escolar</option>
+    					<option>Restaurante Acadêmico</option>
+    					<option>Saúde</option>
+    					<option>Site</option>
+    					<option>Superior</option>
+    					<option>Técnico</option>
+    					<option>Outros</option>
+    					
+    					-->
 					</select>
 
 					<!--<p>Título da Vaga:<br /><input name="sub_category_text" /></p>-->
 
-					<h5>Título</h5>
-					<textarea wrap="hard" rows="2" cols="31" maxlength="62"
+					<h5>Título <span id="charNumTema">/ 60 caracteres</span></h5>
+					<textarea id="field" onkeyup="countCharTema(this)" wrap="hard" rows="2" cols="31" maxlength="62"
 						name="title_text" /></textarea>
 
 
-					<h5>Descrição</h5>
-					<textarea wrap="hard" rows="1" cols="50" maxlength="47"
+					<h5>Descrição <span id="charNumDescricao">/ 140 caracteres</span></h5>
+					<textarea onkeyup="countCharDescricao(this)" wrap="hard" rows="1" cols="50" maxlength="47"
 						name="description_text" /></textarea>
 					<br>
 					<br> <input type="submit" style="width: 150; height: 30"
@@ -340,6 +395,28 @@ select {
 
 </body>
 </html>
+
+
+<script>
+      function countCharTema(val) {
+        var len = val.value.length;
+        if (len > 60) {
+          val.value = val.value.substring(0, 60);
+        } else {
+          $('#charNumTema').text('/ '+(60 - len)+' caracteres');
+        }
+      };
+
+      function countCharDescricao(val) {
+          var len = val.value.length;
+          if (len > 140) {
+            val.value = val.value.substring(0, 140);
+          } else {
+            $('#charNumDescricao').text('/ '+(140 - len)+' caracteres');
+          }
+        };
+</script>
+
 
 <?php
     die();
