@@ -4,6 +4,32 @@ if (! isset($_SESSION['user_logged_in'])) {
     header('location:../index_login.php');
     exit();
 }
+
+
+if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postgres password=1"))) {
+    print "Não foi possível estabelecer uma conexão com o banco de dados.";
+} else {
+    
+    // pegando usuarios do banco de dados
+    $sql1 = pg_query("SELECT id,nome FROM subcategoria ORDER BY nome ASC;") or die("Erro no comando SQL");
+    
+    
+    
+    // TABELA: usuarios
+    if (! $sql1) {
+        echo "Consulta não foi executada!";
+    }
+    
+    $_SESSION['qtd_subcategorias'] = pg_numrows($sql1);
+    
+    $i = 0;
+    while ($row = pg_fetch_array($sql1)) {
+        $_SESSION['id'.$i] = $row[0];
+        $_SESSION['nome'.$i] = $row[1];
+        $i++;
+    }
+}
+
 ?>
 
 <html>
@@ -80,46 +106,16 @@ header .header-black {
 	padding-top: 10px;
 }
 
-
-
-
-
 .container {
 	margin: 0 auto;
 	width: 940px;
 }
-
-#container1 {
-    padding: 90px 0px 0px 40px;
-    margin: 0 auto;
+#container1{
+ padding: 90px 0px 0px 40px;
+ margin: 0 auto;
 	width: 940px;
-	
+ 
 }
-
-#container2 {
-    padding: 0px 0px 0px 40px;
-    margin: 0 auto;
-	width: 940px;
-	
-}
-
-.col-md-6{
-
-	background-color: #dcdde1;
-	 padding: 20px 20px 20px 60px;
-}
-
-.col-md-12{
-
-	background-color: #dcdde1;
-	padding: 20px 20px 20px 60px;
-
-}
-
-hr{
-    border-top: 1px solid black;
-}
-
 </style>
 </head>
 <body>
@@ -164,19 +160,51 @@ hr{
 	</header>
 
 	<div id="container1">
-		<div class="row">
-			<div class="col-xs-6 col-md-6"><h4>Usuários</h4><hr><a href="./usuarios.php"><p>Gerenciar usuários</p></a></div>
-			<div class="col-xs-6 col-md-6"><h4>Quantidade avisos</h4><hr><a><p>Modificar número de avisos</a></p></div>
-		</div>
-	</div>
 	
-	<div id="container2">
-		<div class="row">
-			<div class="col-xs-6 col-md-12"><h4>Subcategorias</h4><hr><a href="./subcategorias.php"><p>Gerenciar Subcategorias</p></a></div>
+		<a href="./subcategoria_nova.php"class="pull-right">+ Adicionar nova subcategoria</a><br><br>
+		<table class="table">
+		
 			
-		</div>
+			<thead >
+				<tr>
+					
+					<th scope="col">Subcategoria</th>
+				
+					<th scope="col">Ação</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+			
+			
+				
+						<!-- Categorias valores do banco de dados -->
+    				<?php
+                        $i = 0;
+                        while ($i< $_SESSION['qtd_subcategorias']) {
+                    ?>
+                    <form method="post" action="./deletar_subcategoria.php">
+    					<tr>
+    					<input type='hidden' name='id' value='<?php echo $_SESSION['id'.$i];  ?>'>
+    					<td><?php echo $_SESSION['nome'.$i]; ?></td>
+    					
+    					<td>
+    					
+    					<input  class="btn btn-primary fonte_menus" type="submit" value="Excluir"/></td>
+    					</form>
+    					</tr>
+       				<?php
+                        $i++;
+                        }
+                    ?>
+      
+				
+				
+			</tbody>
+		</table>
+		
+		
 	</div>
-
 </body>
 
 </html>

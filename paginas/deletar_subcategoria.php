@@ -10,12 +10,12 @@ if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postg
     
     
    
-    $sql1 = pg_query("DELETE FROM usuarios WHERE id='$id';") or die("Erro no comando SQL");
+    $sql1 = pg_query("DELETE FROM subcategoria WHERE id='$id';") or die("Erro no comando SQL");
         
   
     
     
-    header("Location:./usuarios.php");
+    header("Location:./subcategorias.php");
     
     
   

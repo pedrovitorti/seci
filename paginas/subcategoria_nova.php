@@ -4,6 +4,7 @@ if (! isset($_SESSION['user_logged_in'])) {
     header('location:../index_login.php');
     exit();
 }
+
 ?>
 
 <html>
@@ -80,46 +81,33 @@ header .header-black {
 	padding-top: 10px;
 }
 
-
-
-
-
 .container {
 	margin: 0 auto;
 	width: 940px;
 }
 
 #container1 {
-    padding: 90px 0px 0px 40px;
-    margin: 0 auto;
+	padding: 90px 0px 0px 40px;
+	margin: 0 auto;
 	width: 940px;
-	
 }
 
-#container2 {
-    padding: 0px 0px 0px 40px;
-    margin: 0 auto;
-	width: 940px;
-	
-}
-
-.col-md-6{
-
+.modelo {
+	width: 50%;
+	height: 160px;
 	background-color: #dcdde1;
-	 padding: 20px 20px 20px 60px;
+	margin-bottom: 20px;
+	padding: 25px 25px 25px 25px;
 }
 
-.col-md-12{
-
-	background-color: #dcdde1;
-	padding: 20px 20px 20px 60px;
-
+select {
+	background-color: gray;
+	border: 1px solid gray;
+	font-size: 16px;
+	height: 25px;
+	width: 150px;
+	color: white;
 }
-
-hr{
-    border-top: 1px solid black;
-}
-
 </style>
 </head>
 <body>
@@ -162,21 +150,15 @@ hr{
 		</div>
 
 	</header>
-
-	<div id="container1">
-		<div class="row">
-			<div class="col-xs-6 col-md-6"><h4>Usuários</h4><hr><a href="./usuarios.php"><p>Gerenciar usuários</p></a></div>
-			<div class="col-xs-6 col-md-6"><h4>Quantidade avisos</h4><hr><a><p>Modificar número de avisos</a></p></div>
-		</div>
-	</div>
-	
-	<div id="container2">
-		<div class="row">
-			<div class="col-xs-6 col-md-12"><h4>Subcategorias</h4><hr><a href="./subcategorias.php"><p>Gerenciar Subcategorias</p></a></div>
+		<div id="container1" >
+			<form method="post" action="./add_nova_subcategoria.php" class="modelo">
 			
+			Nome subcategoria: <br><input type="text" name="nome" maxlength="30" required/><br><br>
+			
+			<input  class="btn btn-primary fonte_menus" type="submit" value="Adicionar subcategoria"/>
+			</form>
 		</div>
-	</div>
+
 
 </body>
-
 </html>

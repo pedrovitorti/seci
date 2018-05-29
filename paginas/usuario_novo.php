@@ -91,6 +91,23 @@ header .header-black {
 	margin: 0 auto;
 	width: 940px;
 }
+
+.modelo {
+	width: 50%;
+	height: 300px;
+	background-color: #dcdde1;
+	margin-bottom: 20px;
+	padding: 25px 25px 25px 25px;
+}
+
+select {
+	background-color: gray;
+	border: 1px solid gray;
+	font-size: 16px;
+	height: 25px;
+	width: 150px;
+	color: white;
+}
 </style>
 </head>
 <body>
@@ -133,8 +150,8 @@ header .header-black {
 		</div>
 
 	</header>
-		<div id="container1">
-			<form method="post" action="./add_novo_usuario.php">
+		<div id="container1" >
+			<form method="post" action="./add_novo_usuario.php" class="modelo">
 			
 			Nome: <br><input type="text" name="nome" maxlength="30" required/><br>
 			login: <br><input type="text" name="usuario" maxlength="30" required/><br>

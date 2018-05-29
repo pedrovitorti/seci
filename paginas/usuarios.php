@@ -11,7 +11,7 @@ if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postg
 } else {
     
     // pegando usuarios do banco de dados
-    $sql1 = pg_query("SELECT id,nome,usuario,admin FROM usuarios;") or die("Erro no comando SQL");
+    $sql1 = pg_query("SELECT id,nome,usuario,admin FROM usuarios ORDER BY nome ASC;;") or die("Erro no comando SQL");
     
     
     
@@ -167,7 +167,7 @@ header .header-black {
 		<a href="./usuario_novo.php"class="pull-right">+ Adicionar novo usuário</a><br><br>
 		<table class="table">
 		
-			<form method="post" action="./deletar_usuario.php">
+			
 			<thead >
 				<tr>
 					
@@ -187,8 +187,9 @@ header .header-black {
                         $i = 0;
                         while ($i< $_SESSION['qtd_usuarios']) {
                     ?>
+                    <form method="post" action="./deletar_usuario.php">
     					<tr>
-    					<!-- <td><?php echo $_SESSION['id'.$i];  ?></td> -->
+    					<input type='hidden' name='id' value='<?php echo $_SESSION['id'.$i];  ?>'>
     					<td><?php echo $_SESSION['nome'.$i]; ?></td>
     					<td><?php echo $_SESSION['usuario'.$i]; ?></td>
     					<td><?php
@@ -203,6 +204,7 @@ header .header-black {
     					<td>
     					
     					<input  class="btn btn-primary fonte_menus" type="submit" value="Excluir"/></td>
+    					</form>
     					</tr>
        				<?php
                         $i++;
@@ -214,7 +216,7 @@ header .header-black {
 			</tbody>
 		</table>
 		
-		</form>
+		
 	</div>
 </body>
 

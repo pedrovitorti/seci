@@ -6,16 +6,15 @@ if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postg
     
     
     
-    $id = $_POST['id'];
-    
+    $nome = $_POST['nome'];
+ 
     
    
-    $sql1 = pg_query("DELETE FROM usuarios WHERE id='$id';") or die("Erro no comando SQL");
-        
-  
+    $sql1 = pg_query("INSERT INTO subcategoria(nome) values('$nome');") or die("Erro no comando SQL");
+   
     
-    
-    header("Location:./usuarios.php");
+    header("Location:./subcategorias.php");
+   
     
     
   
