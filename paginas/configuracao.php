@@ -80,35 +80,46 @@ header .header-black {
 	padding-top: 10px;
 }
 
-/*menu*/
-#container {
-	width: 100%;
-	height: auto;
-	margin: auto;
-	/*box-shadow: 0px 0px 10px black;*/
-	padding: 90px 0px 0px 0px;
-}
+
+
+
 
 .container {
 	margin: 0 auto;
 	width: 940px;
 }
 
-.modelo {
+#container1 {
+    padding: 90px 0px 0px 40px;
+    margin: 0 auto;
 	width: 940px;
-	height: 160px;
+	
+}
+
+#container2 {
+    padding: 0px 0px 0px 40px;
+    margin: 0 auto;
+	width: 940px;
+	
+}
+
+.col-md-6{
+
 	background-color: #dcdde1;
-	margin-bottom: 20px;
+	 padding: 20px 20px 20px 60px;
 }
 
-ul {
-	padding-left: 300px;
+.col-md-12{
+
+	background-color: #dcdde1;
+	padding: 20px 20px 20px 60px;
+
 }
 
-h4 {
-	padding-top: 15px;
-	padding-left: 300px;
+hr{
+    border-top: 1px solid black;
 }
+
 </style>
 </head>
 <body>
@@ -152,52 +163,20 @@ h4 {
 
 	</header>
 
-	<div class="container">
-
-		<div id="container">
-
-
-			<a href="gerar_modelo01.php">
-				<div class="modelo">
-					<img border="0" alt="aviso01" src="./imagens/aviso01.jpg"
-						width="260" height="160"
-						style="border: 2px solid #7f8fa6; float: left;">
-					<h4>Modelo 01</h4>
-					<ul>
-						<li>Possui um tema principal com duas linhas.</li>
-						<li>Descrição com três linhas.</li>
-					</ul>
-
-
-				</div>
-			</a> <a href="gerar_modelo02.php">
-				<div class="modelo">
-					<img border="0" alt="aviso02" src="./imagens/aviso02.jpg"
-						width="260" height="160"
-						style="border: 2px solid #7f8fa6; float: left;">
-					<h4>Modelo 02</h4>
-					<ul>
-						<li>Necessário o upload de uma imagem para compor o painel</li>
-						<li>Possui um tema principal com duas linhas.</li>
-						<li>Descrição com uma linha.</li>
-					</ul>
-				</div>
-
-			</a> <a href="gerar_modelo03.php">
-				<div class="modelo">
-					<img border="0" alt="aviso03" src="./imagens/aviso03.jpg"
-						width="260" height="160"
-						style="border: 2px solid #7f8fa6; float: left;">
-					<h4>Modelo 03</h4>
-					<ul>
-						<li>Necessário o upload de uma imagem para compor o painel</li>
-						<li>Possui um tema principal com uma linha.</li>
-						<li>Descrição com três linhas.</li>
-					</ul>
-				</div>
-			</a>
-
+	<div id="container1">
+		<div class="row">
+			<div class="col-xs-6 col-md-6"><h4>Usuários</h4><hr><a href="./usuarios.php"><p>Gerenciar usuários</p></a></div>
+			<div class="col-xs-6 col-md-6"><h4>Quantidade avisos</h4><hr><a><p>Modificar número de avisos</a></p></div>
 		</div>
 	</div>
+	
+	<div id="container2">
+		<div class="row">
+			<div class="col-xs-6 col-md-12"><h4>Subcategorias</h4><hr><a><p>Gerenciar Subcategorias</p></a></div>
+			
+		</div>
+	</div>
+
 </body>
+
 </html>

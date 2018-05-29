@@ -4,6 +4,7 @@ if (! isset($_SESSION['user_logged_in'])) {
     header('location:../index_login.php');
     exit();
 }
+
 ?>
 
 <html>
@@ -80,34 +81,15 @@ header .header-black {
 	padding-top: 10px;
 }
 
-/*menu*/
-#container {
-	width: 100%;
-	height: auto;
-	margin: auto;
-	/*box-shadow: 0px 0px 10px black;*/
-	padding: 90px 0px 0px 0px;
-}
-
 .container {
 	margin: 0 auto;
 	width: 940px;
 }
 
-.modelo {
+#container1 {
+	padding: 90px 0px 0px 40px;
+	margin: 0 auto;
 	width: 940px;
-	height: 160px;
-	background-color: #dcdde1;
-	margin-bottom: 20px;
-}
-
-ul {
-	padding-left: 300px;
-}
-
-h4 {
-	padding-top: 15px;
-	padding-left: 300px;
 }
 </style>
 </head>
@@ -151,53 +133,21 @@ h4 {
 		</div>
 
 	</header>
-
-	<div class="container">
-
-		<div id="container">
-
-
-			<a href="gerar_modelo01.php">
-				<div class="modelo">
-					<img border="0" alt="aviso01" src="./imagens/aviso01.jpg"
-						width="260" height="160"
-						style="border: 2px solid #7f8fa6; float: left;">
-					<h4>Modelo 01</h4>
-					<ul>
-						<li>Possui um tema principal com duas linhas.</li>
-						<li>Descrição com três linhas.</li>
-					</ul>
-
-
-				</div>
-			</a> <a href="gerar_modelo02.php">
-				<div class="modelo">
-					<img border="0" alt="aviso02" src="./imagens/aviso02.jpg"
-						width="260" height="160"
-						style="border: 2px solid #7f8fa6; float: left;">
-					<h4>Modelo 02</h4>
-					<ul>
-						<li>Necessário o upload de uma imagem para compor o painel</li>
-						<li>Possui um tema principal com duas linhas.</li>
-						<li>Descrição com uma linha.</li>
-					</ul>
-				</div>
-
-			</a> <a href="gerar_modelo03.php">
-				<div class="modelo">
-					<img border="0" alt="aviso03" src="./imagens/aviso03.jpg"
-						width="260" height="160"
-						style="border: 2px solid #7f8fa6; float: left;">
-					<h4>Modelo 03</h4>
-					<ul>
-						<li>Necessário o upload de uma imagem para compor o painel</li>
-						<li>Possui um tema principal com uma linha.</li>
-						<li>Descrição com três linhas.</li>
-					</ul>
-				</div>
-			</a>
-
+		<div id="container1">
+			<form method="post" action="./add_novo_usuario.php">
+			
+			Nome: <br><input type="text" name="nome" maxlength="30" required/><br>
+			login: <br><input type="text" name="usuario" maxlength="30" required/><br>
+			senha: <br><input type="password" name="senha" maxlength="30" required/><br>
+			tipo:<br>
+				<select name="tipo">
+					<option>administrador</option>
+					<option>padrão</option>
+				</select><br><br>
+			<input  class="btn btn-primary fonte_menus" type="submit" value="Adicionar usuário"/>
+			</form>
 		</div>
-	</div>
+
+
 </body>
 </html>

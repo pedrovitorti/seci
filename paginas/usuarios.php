@@ -4,6 +4,35 @@ if (! isset($_SESSION['user_logged_in'])) {
     header('location:../index_login.php');
     exit();
 }
+
+
+if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postgres password=1"))) {
+    print "Não foi possível estabelecer uma conexão com o banco de dados.";
+} else {
+    
+    // pegando usuarios do banco de dados
+    $sql1 = pg_query("SELECT id,nome,usuario,admin FROM usuarios;") or die("Erro no comando SQL");
+    
+    
+    
+    // TABELA: usuarios
+    if (! $sql1) {
+        echo "Consulta não foi executada!";
+    }
+    
+    $_SESSION['qtd_usuarios'] = pg_numrows($sql1);
+    
+    $i = 0;
+    while ($row = pg_fetch_array($sql1)) {
+        $_SESSION['id'.$i] = $row[0];
+        $_SESSION['nome'.$i] = $row[1];
+        $_SESSION['usuario'.$i] = $row[2];
+        $_SESSION['tipo'.$i] = $row[3];
+        
+        $i++;
+    }
+}
+
 ?>
 
 <html>
@@ -84,6 +113,12 @@ header .header-black {
 	margin: 0 auto;
 	width: 940px;
 }
+#container1{
+ padding: 90px 0px 0px 40px;
+ margin: 0 auto;
+	width: 940px;
+ 
+}
 </style>
 </head>
 <body>
@@ -109,10 +144,10 @@ header .header-black {
 			<div class="row">
 				<nav id="menu-opcoes" class="pull-right">
 					<ul>
-						<li><a href="principal_adm.php">Página Inicial</a></li>
-						<li><a href="modelos.php">Criar avisos</a></li>
-						<li><a href="galeria.php">Galeria</a></li>
-						<li><a href="ajuda.php">Ajuda</a></li>
+						<li><a href="./principal_adm.php">Página Inicial</a></li>
+						<li><a href="./modelos.php">Criar avisos</a></li>
+						<li><a href="./galeria.php">Galeria</a></li>
+						<li><a href="./configuracao.php">Configuração</a></li>
 					</ul>
 				</nav>
 
@@ -126,3 +161,61 @@ header .header-black {
 		</div>
 
 	</header>
+
+	<div id="container1">
+	
+		<a href="./usuario_novo.php"class="pull-right">+ Adicionar novo usuário</a><br><br>
+		<table class="table">
+		
+			<form method="post" action="./deletar_usuario.php">
+			<thead >
+				<tr>
+					
+					<th scope="col">Nome</th>
+					<th scope="col">Login</th>
+					<th scope="col">Tipo</th>
+					<th scope="col">Ação</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+			
+			
+				
+						<!-- Categorias valores do banco de dados -->
+    				<?php
+                        $i = 0;
+                        while ($i< $_SESSION['qtd_usuarios']) {
+                    ?>
+    					<tr>
+    					<!-- <td><?php echo $_SESSION['id'.$i];  ?></td> -->
+    					<td><?php echo $_SESSION['nome'.$i]; ?></td>
+    					<td><?php echo $_SESSION['usuario'.$i]; ?></td>
+    					<td><?php
+    					
+    					if($_SESSION['tipo'.$i] =='t'){
+    					   echo "administrador";
+    					}else{
+    					   echo "padrão";    
+    					}
+    					
+    					 ?></td>
+    					<td>
+    					
+    					<input  class="btn btn-primary fonte_menus" type="submit" value="Excluir"/></td>
+    					</tr>
+       				<?php
+                        $i++;
+                        }
+                    ?>
+      
+				
+				
+			</tbody>
+		</table>
+		
+		</form>
+	</div>
+</body>
+
+</html>

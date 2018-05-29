@@ -327,7 +327,7 @@ input[type=submit] {
 						<li><a href="./principal_adm.php">Página Inicial</a></li>
 						<li><a href="./modelos.php">Criar avisos</a></li>
 						<li><a href="./galeria.php">Galeria</a></li>
-						<li><a href="./ajuda.php">Ajuda</a></li>
+						<li><a href="./configuracao.php">Configuração</a></li>
 					</ul>
 				</nav>
 
