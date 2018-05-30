@@ -260,10 +260,6 @@ input[type=text]:hover, textarea:hover {
 	border: 1px solid #990000;
 }
 
-input[type=submit] {
-	background: #006699;
-	color: #ffffff;
-}
 
 /*exibição mensagem aguarde...*/
 #blanket, #aguarde {
@@ -379,11 +375,11 @@ input[type=submit] {
 				<h4>Modificar Avisos</h4>
 				<br>
 				<div id="item"></div>
-				<br> <input type="submit"
+				<br> <input class="btn btn-primary fonte_menus" type="submit"
 					onclick="javascript:document.getElementById('blanket').style.display = 'block';document.getElementById('aguarde').style.display = 'block';"
-					style="width: 150; height: 30" value="Enviar"> <input type="submit"
+					style="width: 150;"  value="Enviar"> <input class="btn btn-primary fonte_menus" type="submit"
 					onclick="javascript:document.getElementById('blanket').style.display = 'block';document.getElementById('aguarde').style.display = 'block';"
-					style="width: 150; height: 30" value="Atualizar">
+					style="width: 150;" value="Atualizar">
 				<!--Teste botao atualizar -->
 			</form>
 		</div>

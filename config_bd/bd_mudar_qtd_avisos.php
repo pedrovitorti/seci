@@ -17,7 +17,7 @@ include("../config_bd/conexao.php");
     
     
     //alterando arquivo.txt
-    $f = fopen("arquivo.txt", "r+"); //Abre para leitura e gravação; coloca o ponteiro no começo do arquivo.
+    $f = fopen("../paginas/arquivo.txt", "r+"); //Abre para leitura e gravação; coloca o ponteiro no começo do arquivo.
     $text = 'b';
     fwrite($f, $text);
     fclose($f);
@@ -25,7 +25,7 @@ include("../config_bd/conexao.php");
     sleep(10); // Espera 10 segundos para dá tempo o raspberry atualizar os avisos, tempo muito pegueno pode não atualizar
     
     //alterando arquivo.txt
-    $f = fopen("arquivo.txt", "r+");
+    $f = fopen("../paginas/arquivo.txt", "r+");
     $text = 'a';
     fwrite($f, $text);
     fclose($f);
