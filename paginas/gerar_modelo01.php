@@ -5,6 +5,11 @@ if (! isset($_SESSION['user_logged_in'])) {
     exit();
 }
 
+include("../config_bd/conexao.php");
+include("../config_bd/bd_categoria_subcategoria.php");
+
+
+/*
 if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postgres password=1"))) {
     print "Não foi possível estabelecer uma conexão com o banco de dados.";
 } else {
@@ -26,7 +31,7 @@ if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postg
     }
     
    // $_SESSION['qtd_categoria'] = pg_num_rows($sql);
-}
+}*/
 
 require_once ('func_image01.php');
 // if form not submitted, show it and bail

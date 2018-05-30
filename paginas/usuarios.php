@@ -6,6 +6,9 @@ if (! isset($_SESSION['user_logged_in'])) {
 }
 
 
+include("../config_bd/conexao.php");
+include("../config_bd/bd_usuarios.php");
+/*
 if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postgres password=1"))) {
     print "Não foi possível estabelecer uma conexão com o banco de dados.";
 } else {
@@ -28,10 +31,9 @@ if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postg
         $_SESSION['nome'.$i] = $row[1];
         $_SESSION['usuario'.$i] = $row[2];
         $_SESSION['tipo'.$i] = $row[3];
-        
         $i++;
     }
-}
+}*/
 
 ?>
 
@@ -189,7 +191,7 @@ header .header-black {
                         $i = 0;
                         while ($i< $_SESSION['qtd_usuarios']) {
                     ?>
-                    <form method="post" action="./deletar_usuario.php">
+                    <form method="post" action="../config_bd/bd_deletar_usuario.php">
     					<tr>
     					<input type='hidden' name='id' value='<?php echo $_SESSION['id'.$i];  ?>'>
     					<td><?php echo $_SESSION['nome'.$i]; ?></td>

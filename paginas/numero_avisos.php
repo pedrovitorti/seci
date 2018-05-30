@@ -5,7 +5,11 @@ if (! isset($_SESSION['user_logged_in'])) {
     exit();
 }
 
-if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postgres password=1"))) {
+
+include("../config_bd/conexao.php");
+include("../config_bd/bd_numero_avisos.php");
+
+/*if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postgres password=1"))) {
     print "Não foi possível estabelecer uma conexão com o banco de dados.";
 } else {
     
@@ -27,7 +31,7 @@ if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postg
        
    
     }
-}
+}*/
 ?>
 
 <html>
@@ -217,7 +221,7 @@ select {
 		<div id="blanket"></div>
 			<div id="aguarde">Aguarde...</div>
 			
-			<form method="post" action="./mudar_qtd_avisos.php" class="modelo">
+			<form method="post" action="../config_bd/bd_mudar_qtd_avisos.php" class="modelo">
 			
 			Quantidade atual de avisos: <span class="qtd"><b><?php echo $_SESSION['qtd'];?></b></span><br><br>
 			Mudar quantidade de avisos:<br>

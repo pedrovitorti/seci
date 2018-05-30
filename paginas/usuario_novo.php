@@ -151,7 +151,7 @@ select {
 
 	</header>
 		<div id="container1" >
-			<form method="post" action="./add_novo_usuario.php" class="modelo">
+			<form method="post" action="../config_bd/bd_add_novo_usuario.php" class="modelo">
 			
 			Nome: <br><input type="text" name="nome" maxlength="30" required/><br>
 			login: <br><input type="text" name="usuario" maxlength="30" required/><br>

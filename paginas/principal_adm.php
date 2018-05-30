@@ -5,6 +5,11 @@ if (! isset($_SESSION['user_logged_in'])) {
     exit();
 }
 
+
+
+include("../config_bd/conexao.php");
+include("../config_bd/bd_principal_adm.php");
+/*
 if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postgres password=1"))) {
     print "Não foi possível estabelecer uma conexão com o banco de dados.";
 } else {
@@ -21,7 +26,7 @@ if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postg
         $_SESSION['qtd_avisos'] = $row[0];
     }
     pg_close($conexao);
-}
+}*/
 ?>
 
 <html>

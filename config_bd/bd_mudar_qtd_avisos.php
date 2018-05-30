@@ -1,8 +1,6 @@
 <?php 
 
-if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postgres password=1"))) {
-    print "Não foi possível estabelecer uma conexão com o banco de dados.";
-} else {
+include("../config_bd/conexao.php");
     
     
     
@@ -31,7 +29,7 @@ if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postg
     $text = 'a';
     fwrite($f, $text);
     fclose($f);
-    header("Location:./numero_avisos.php");
+    header("Location:../paginas/numero_avisos.php");
   
-}
+
 ?>

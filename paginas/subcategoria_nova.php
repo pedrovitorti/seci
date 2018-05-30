@@ -151,7 +151,7 @@ select {
 
 	</header>
 		<div id="container1" >
-			<form method="post" action="./add_nova_subcategoria.php" class="modelo">
+			<form method="post" action="../config_bd/bd_add_nova_subcategoria.php" class="modelo">
 			
 			Nome subcategoria: <br><input type="text" name="nome" maxlength="30" required/><br><br>
 			
