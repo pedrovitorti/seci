@@ -151,10 +151,7 @@ input[type=text]:hover, textarea:hover {
 	border: 1px solid #990000;
 }
 
-input[type=submit] {
-	background: #006699;
-	color: #ffffff;
-}
+
 
 .cor1 {
 	height: 45px;
@@ -266,7 +263,7 @@ select {
 					enctype="multipart/form-data">
 					Imagem JPG: <input type="file" name="fileUpload1"><input
 						type="hidden" name="nomeImg1" value="imagem"><br> <input
-						type="submit" style="width: 150; height: 30" id="send"
+						class="btn btn-primary fonte_menus" type="submit" style="width: 150;" id="send"
 						value="Enviar">
 				</form>
 			</div>
@@ -367,7 +364,7 @@ select {
 						name="description_text" /></textarea>
 					<br> <br> 
 					
-					<input type="submit" style="width: 150; height: 30"
+					<input class="btn btn-primary fonte_menus" type="submit" style="width: 150;"
 						value="Gerar Imagem" />
 
 

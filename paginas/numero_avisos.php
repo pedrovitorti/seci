@@ -117,7 +117,7 @@ header .header-black {
 
 .modelo {
 	width: 50%;
-	height: 180px;
+	height: 188px;
 	background-color: #dcdde1;
 	margin-bottom: 20px;
 	padding: 25px 25px 25px 25px;
@@ -162,6 +162,14 @@ select {
 	z-index: 9999;
 	padding-left: 27px;
 }
+
+.qtd{
+    text-color: black;
+    border: 1px solid gray;
+    font-size: 18px;
+    padding: 4px 4px 4px 4px;
+}
+
 </style>
 </head>
 <body>
@@ -211,7 +219,7 @@ select {
 			
 			<form method="post" action="./mudar_qtd_avisos.php" class="modelo">
 			
-			Quantidade atual: <?php echo $_SESSION['qtd'];?><br><br>
+			Quantidade atual de avisos: <span class="qtd"><b><?php echo $_SESSION['qtd'];?></b></span><br><br>
 			Mudar quantidade de avisos:<br>
 				<select name="qtd">
 					<option>1</option>

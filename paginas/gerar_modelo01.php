@@ -142,10 +142,7 @@ input[type=text]:hover, textarea:hover {
 	border: 1px solid #990000;
 }
 
-input[type=submit] {
-	background: #006699;
-	color: #ffffff;
-}
+
 
 .cor1 {
 	height: 45px;
@@ -335,7 +332,7 @@ select {
 				<h5>Descrição <span id="charNumDescricao">/ 140 caracteres</span></h5>
 				<textarea  onkeyup="countCharDescricao(this)" wrap="hard" rows="3" cols="45" maxlength="140"
 					name="description_text" /></textarea>
-				<br> <br> <input type="submit" style="width: 150; height: 30"
+				<br> <br> <input class="btn btn-primary fonte_menus" type="submit" style="width: 150;"
 					value="Gerar Imagem" />
 
 
