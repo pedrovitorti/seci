@@ -10,10 +10,10 @@ if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postg
 } else {
     
     // pegando categorias do banco de dados
-    $sql1 = pg_query("SELECT nome FROM categoria;") or die("Erro no comando SQL");
+    $sql1 = pg_query("SELECT nome FROM categoria ORDER BY nome ASC;") or die("Erro no comando SQL");
     
     // pegando subcategorias do banco de dados
-    $sql2 = pg_query("SELECT nome FROM subcategoria;") or die("Erro no comando SQL");
+    $sql2 = pg_query("SELECT nome FROM subcategoria ORDER BY nome ASC;") or die("Erro no comando SQL");
     
     // TABELA: categoria
     if (! $sql1) {

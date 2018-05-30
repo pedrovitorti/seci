@@ -4,6 +4,30 @@ if (! isset($_SESSION['user_logged_in'])) {
     header('location:../index_login.php');
     exit();
 }
+
+if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postgres password=1"))) {
+    print "Não foi possível estabelecer uma conexão com o banco de dados.";
+} else {
+    
+    // pegando usuarios do banco de dados
+    $sql1 = pg_query("SELECT quantidade FROM qtd_avisos;") or die("Erro no comando SQL");
+    
+    
+    
+    // TABELA: usuarios
+    if (! $sql1) {
+        echo "Consulta não foi executada!";
+    }
+    
+    $_SESSION['qtd_usuarios'] = pg_numrows($sql1);
+    
+   
+    while ($row = pg_fetch_array($sql1)) {
+        $_SESSION['qtd'] = $row[0];
+       
+   
+    }
+}
 ?>
 
 <html>
@@ -80,46 +104,64 @@ header .header-black {
 	padding-top: 10px;
 }
 
-
-
-
-
 .container {
 	margin: 0 auto;
 	width: 940px;
 }
 
 #container1 {
-    padding: 90px 0px 0px 40px;
-    margin: 0 auto;
+	padding: 90px 0px 0px 40px;
+	margin: 0 auto;
 	width: 940px;
-	
 }
 
-#container2 {
-    padding: 0px 0px 0px 40px;
-    margin: 0 auto;
-	width: 940px;
-	
-}
-
-.col-md-6{
-
+.modelo {
+	width: 50%;
+	height: 180px;
 	background-color: #dcdde1;
-	 padding: 20px 20px 20px 60px;
+	margin-bottom: 20px;
+	padding: 25px 25px 25px 25px;
 }
 
-.col-md-12{
-
-	background-color: #dcdde1;
-	padding: 20px 20px 20px 60px;
-
+select {
+	background-color: gray;
+	border: 1px solid gray;
+	font-size: 16px;
+	height: 25px;
+	width: 150px;
+	color: white;
 }
 
-hr{
-    border-top: 1px solid black;
+/*exibição mensagem aguarde...*/
+#blanket, #aguarde {
+	position: fixed;
+	display: none;
 }
 
+#blanket {
+	left: 0;
+	top: 0;
+	background-color: #f0f0f0;
+	filter: alpha(opacity = 65);
+	height: 100%;
+	width: 100%;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=65)";
+	opacity: 0.65;
+	z-index: 9998;
+}
+
+#aguarde {
+	width: auto;
+	height: 30px;
+	top: 40%;
+	left: 45%;
+	background: url('http://i.imgur.com/SpJvla7.gif') no-repeat 0 50%;
+	line-height: 30px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	z-index: 9999;
+	padding-left: 27px;
+}
 </style>
 </head>
 <body>
@@ -162,21 +204,31 @@ hr{
 		</div>
 
 	</header>
-
-	<div id="container1">
-		<div class="row">
-			<div class="col-xs-6 col-md-6"><h4>Usuários</h4><hr><a href="./usuarios.php"><p>Gerenciar usuários</p></a></div>
-			<div class="col-xs-6 col-md-6"><h4>Quantidade avisos</h4><hr><a href="./numero_avisos.php"><p>Modificar número de avisos</a></p></div>
-		</div>
-	</div>
-	
-	<div id="container2">
-		<div class="row">
-			<div class="col-xs-6 col-md-12"><h4>Subcategorias</h4><hr><a href="./subcategorias.php"><p>Gerenciar Subcategorias</p></a></div>
+		<div id="container1" >
+		
+		<div id="blanket"></div>
+			<div id="aguarde">Aguarde...</div>
 			
+			<form method="post" action="./mudar_qtd_avisos.php" class="modelo">
+			
+			Quantidade atual: <?php echo $_SESSION['qtd'];?><br><br>
+			Mudar quantidade de avisos:<br>
+				<select name="qtd">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+					<option>9</option>
+					<option>10</option>
+				</select><br><br>
+			<input onclick="javascript:document.getElementById('blanket').style.display = 'block';document.getElementById('aguarde').style.display = 'block';" class="btn btn-primary fonte_menus" type="submit" value="Alterar"/>
+			</form>
 		</div>
-	</div>
+
 
 </body>
-
 </html>
