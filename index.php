@@ -94,7 +94,7 @@
 		
 		<!-- Conteúdo principal -->
 		<div >
-			<form method="post" action="./paginas/seguranca.php">
+			<form method="post" action="./config_bd/seguranca.php">
 				<div id="container">
 				
     				<center>

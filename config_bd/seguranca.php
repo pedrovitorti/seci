@@ -1,7 +1,5 @@
 <?php
-if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postgres password=1"))) {
-    print "Não foi possível estabelecer uma conexão com o banco de dados.";
-} else {
+include("../config_bd/conexao.php");
     
     // Entrada de Dados
     $login = $_POST['login'];
@@ -34,7 +32,7 @@ if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postg
        /* echo $row[3];*/
      
        if ($_SESSION['user_admin'] =='t') {
-            header("Location:./principal_adm.php");
+            header("Location:../paginas/principal_adm.php");
         } else {
             header("Location:../index_login.php");
         }
@@ -42,5 +40,5 @@ if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postg
     
     pg_close($conexao);
    
-}
+
 ?>

@@ -373,7 +373,7 @@ input[type=submit] {
 			<div id="blanket"></div>
 			<div id="aguarde">Aguarde...</div>
 
-			<form id="formulario" action="enviar.php" method="POST"
+			<form id="formulario" action="../config_bd/enviar.php" method="POST"
 				enctype="multipart/form-data">
 
 				<h4>Modificar Avisos</h4>

@@ -2,9 +2,7 @@
   
       date_default_timezone_set("Brazil/East"); //Definindo timezone padrão
 	
-      if(!@($conexao=pg_connect ("host=localhost dbname=avisos port=5432 user=postgres password=1"))) {
-          print "Não foi possível estabelecer uma conexão com o banco de dados.";
-      } else {
+      include("../config_bd/conexao.php");
           
           //Verificando se o usuário está cadastrado no banco
           $sql = pg_query("SELECT quantidade FROM qtd_avisos;")
@@ -21,7 +19,7 @@
           
           pg_close ($conexao);
           
-      }
+      
       
       
       for ($i=1; $i <= $_SESSION['qtd_avisos']; $i++) { 
@@ -29,13 +27,13 @@
           $ext = strtolower(substr($_FILES['fileUpload'.$i]['name'],-4)); //Pegando extensão do arquivo
           $nome =  $_POST['nomeImg'.$i];
           $new_name = $nome. $ext; //Definindo um novo nome para o arquivo
-          $dir = 'uploads/'; //Diretório para uploads
+          $dir = '../paginas/uploads/'; //Diretório para uploads
           move_uploaded_file($_FILES['fileUpload'.$i]['tmp_name'], $dir.$new_name); //Fazer upload do arquivo
           
           //Salvando cópia da imagem na galeria
           $um = $i;
           $new_name_gallery = date("Y.m.d-H.i.s").$um.$ext;
-          $dir_gallery = 'galeria_avisos/';
+          $dir_gallery = '../paginas/galeria_avisos/';
           copy($dir.$new_name, $dir_gallery.$new_name_gallery);
           
       }
@@ -121,7 +119,7 @@
 
 
       //alterando arquivo.txt
-      $f = fopen("arquivo.txt", "r+"); //Abre para leitura e gravação; coloca o ponteiro no começo do arquivo.
+      $f = fopen("../paginas/arquivo.txt", "r+"); //Abre para leitura e gravação; coloca o ponteiro no começo do arquivo.
       $text = 'b';
       fwrite($f, $text);
       fclose($f);
@@ -129,11 +127,11 @@
 		sleep(10); // Espera 10 segundos para dá tempo o raspberry atualizar os avisos, tempo muito pegueno pode não atualizar
 		
 	  //alterando arquivo.txt
-	  $f = fopen("arquivo.txt", "r+");
+	  $f = fopen("../paginas/arquivo.txt", "r+");
       $text = 'a';
       fwrite($f, $text);
       fclose($f);
-	  header("Location:./principal_adm.php");
+	  header("Location:../paginas/principal_adm.php");
 ?>
 
 
