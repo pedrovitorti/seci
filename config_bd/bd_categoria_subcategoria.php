@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // pegando categorias do banco de dados
 $sql1 = pg_query("SELECT nome FROM categoria ORDER BY nome ASC;") or die("Erro no comando SQL");
