@@ -233,6 +233,11 @@ header .header-black {
 	/*box-shadow: 0px 0px 10px black;*/
 	padding: 90px 0px 0px 0px;
 }
+
+.container {
+	margin: 0 auto;
+	width: 940px;
+}
 </style>
 </head>
 <body>
@@ -258,10 +263,10 @@ header .header-black {
 			<div class="row">
 				<nav id="menu-opcoes" class="pull-right">
 					<ul>
-							<li><a href="principal_adm.php">Página Inicial</a></li>
-						<li><a href="gerar_imagem.php">Criar avisos</a></li>
-						<li><a href="galeria.php">Galeria</a></li>
-						<li><a href="ajuda.php">Ajuda</a></li>
+						<li><a href="./principal_adm.php">Página Inicial</a></li>
+						<li><a href="./modelos.php">Criar avisos</a></li>
+						<li><a href="./galeria.php">Galeria</a></li>
+						<li><a href="./configuracao.php">Configuração</a></li>
 					</ul>
 				</nav>
 
@@ -287,8 +292,8 @@ header .header-black {
 			<h3>Galeria Avisos</h3>
 			<hr>
 			<center>
-			<div class="demo-gallery">
-				<ul id="lightgallery" class="list-unstyled row">
+				<div class="demo-gallery">
+					<ul id="lightgallery" class="list-unstyled row">
 		
                     
                        <?php
@@ -309,7 +314,8 @@ header .header-black {
                     ?>
               
             </ul>
-			</div></center>
+				</div>
+			</center>
 			<script
 				src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
 			<script

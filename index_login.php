@@ -38,7 +38,7 @@
 				bottom: 0px;
 				left: 0px;
 				width: 450px;
-				height: 100%;
+				height: 700px;
 				margin: auto;
 				margin-top:70px;
 				box-shadow: 0px 0px 10px black;
@@ -94,7 +94,7 @@
 		
 		<!-- Conteúdo principal -->
 		<div >
-			<form method="post" action="./paginas/seguranca.php">
+			<form method="post" action="./config_bd/seguranca.php">
 				<div id="container">
 				
     				<center>

@@ -5,6 +5,11 @@ if (! isset($_SESSION['user_logged_in'])) {
     exit();
 }
 
+
+
+include("../config_bd/conexao.php");
+include("../config_bd/bd_principal_adm.php");
+/*
 if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postgres password=1"))) {
     print "Não foi possível estabelecer uma conexão com o banco de dados.";
 } else {
@@ -21,7 +26,7 @@ if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postg
         $_SESSION['qtd_avisos'] = $row[0];
     }
     pg_close($conexao);
-}
+}*/
 ?>
 
 <html>
@@ -235,7 +240,6 @@ figcaption {
 	margin: -240px 10px 10px 490px;
 }
 
-
 /* container tv com pré-avisos*/
 #container {
 	/*position: absolute;*/
@@ -251,16 +255,11 @@ figcaption {
 	/*box-sizing: border-box;*/
 }
 
-
 input[type=text]:hover, textarea:hover {
 	background: #ffffff;
 	border: 1px solid #990000;
 }
 
-input[type=submit] {
-	background: #006699;
-	color: #ffffff;
-}
 
 /*exibição mensagem aguarde...*/
 #blanket, #aguarde {
@@ -292,6 +291,11 @@ input[type=submit] {
 	z-index: 9999;
 	padding-left: 27px;
 }
+
+.container {
+	margin: 0 auto;
+	width: 940px;
+}
 </style>
 
 <!--SlideShow Imagens - Fim -->
@@ -321,10 +325,10 @@ input[type=submit] {
 			<div class="row">
 				<nav id="menu-opcoes" class="pull-right">
 					<ul>
-						<li><a href="./principal_adm.php">Página inicial</a></li>
-						<li><a href="./gerar_imagem.php">Criar avisos</a></li>
+						<li><a href="./principal_adm.php">Página Inicial</a></li>
+						<li><a href="./modelos.php">Criar avisos</a></li>
 						<li><a href="./galeria.php">Galeria</a></li>
-						<li><a href="./ajuda.php">Ajuda</a></li>
+						<li><a href="./configuracao.php">Configuração</a></li>
 					</ul>
 				</nav>
 
@@ -365,18 +369,17 @@ input[type=submit] {
 			<div id="blanket"></div>
 			<div id="aguarde">Aguarde...</div>
 
-			<form id="formulario" action="enviar.php" method="POST"
+			<form id="formulario" action="../config_bd/enviar.php" method="POST"
 				enctype="multipart/form-data">
 
 				<h4>Modificar Avisos</h4>
 				<br>
 				<div id="item"></div>
-				<br> <input type="submit"
+				<br> <input class="btn btn-primary fonte_menus" type="submit"
 					onclick="javascript:document.getElementById('blanket').style.display = 'block';document.getElementById('aguarde').style.display = 'block';"
-					style="width: 150; height: 30"  value="Enviar"> <input
-					type="submit"
+					style="width: 150;"  value="Enviar"> <input class="btn btn-primary fonte_menus" type="submit"
 					onclick="javascript:document.getElementById('blanket').style.display = 'block';document.getElementById('aguarde').style.display = 'block';"
-					style="width: 150; height: 30"  value="Atualizar">
+					style="width: 150;" value="Atualizar">
 				<!--Teste botao atualizar -->
 			</form>
 		</div>

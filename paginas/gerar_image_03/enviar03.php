@@ -11,7 +11,7 @@
       move_uploaded_file($_FILES['fileUpload1']['tmp_name'], $dir.$new_name); //Fazer upload do arquivo
 
 		
-		header("Location:../gerar_imagem03.php");
+		header("Location:../gerar_modelo03.php");
 ?>
 
 

@@ -42,7 +42,7 @@ function generate_image( $args = array() ) {
 	//imagen ESTÁGIO - ok
 	if($category_text == 'ESTÁGIO'){
 		//Mudar imagem de fundo
-		$args['imagebase'] = dirname(__FILE__) .'/imagem_gerada_ESTAGIO.jpg';
+		$args['imagebase'] = dirname(__FILE__) .'/imagens/background_eixos/imagem_gerada_ESTAGIO.jpg';
 		$im = imagecreatefromjpeg( $args['imagebase'] );// pegando a imagem 
 	 	$textcolor = imagecolorallocate( $im,255, 255, 255 ); //Cor do texto branco
 		$textcolorsub = imagecolorallocate( $im, 255, 255, 255 );
