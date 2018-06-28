@@ -92,6 +92,7 @@
 			<!-- Cabeçalho - sem -->
 		</header>	
 		
+		
 		<!-- Conteúdo principal -->
 		<div >
 			<form method="post" action="./config_bd/seguranca.php">
