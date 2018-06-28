@@ -4,36 +4,25 @@ if (! isset($_SESSION['user_logged_in']) || $_SESSION['user_admin'] =='f') { //n
     header('location:../index_login.php');
     exit();
 }
+include ("../config_bd/conexao.php");
 
+$id_edit = $_SESSION['user_id_edit'];
+// pegando usuarios do banco de dados
+$sql1 = pg_query("select * from usuarios where id='$id_edit';") or die("Erro no comando SQL");
 
-include("../config_bd/conexao.php");
-include("../config_bd/bd_usuarios.php");
-/*
-if (! @($conexao = pg_connect("host=localhost dbname=avisos port=5432 user=postgres password=1"))) {
-    print "Não foi possível estabelecer uma conexão com o banco de dados.";
-} else {
-    
-    // pegando usuarios do banco de dados
-    $sql1 = pg_query("SELECT id,nome,usuario,admin FROM usuarios ORDER BY nome ASC;;") or die("Erro no comando SQL");
-    
-    
-    
-    // TABELA: usuarios
-    if (! $sql1) {
-        echo "Consulta não foi executada!";
-    }
-    
-    $_SESSION['qtd_usuarios'] = pg_numrows($sql1);
-    
-    $i = 0;
-    while ($row = pg_fetch_array($sql1)) {
-        $_SESSION['id'.$i] = $row[0];
-        $_SESSION['nome'.$i] = $row[1];
-        $_SESSION['usuario'.$i] = $row[2];
-        $_SESSION['tipo'.$i] = $row[3];
-        $i++;
-    }
-}*/
+// TABELA: usuarios
+if (! $sql1) {
+    echo "Consulta não foi executada!";
+}
+
+$i = 0;
+while ($row = pg_fetch_array($sql1)) {
+    $_SESSION['id_edit'] = $row[0];
+    $_SESSION['nome_edit'] = $row[1];
+    $_SESSION['usuario_edit'] = $row[2];
+    $_SESSION['tipo_edit'] = $row[3];
+    $i ++;
+}
 
 ?>
 
@@ -115,14 +104,29 @@ header .header-black {
 	margin: 0 auto;
 	width: 940px;
 }
-#container1{
- padding: 90px 0px 0px 40px;
- margin: 0 auto;
+
+#container1 {
+	padding: 90px 0px 0px 40px;
+	margin: 0 auto;
 	width: 940px;
- 
 }
 
+.modelo {
+	width: 50%;
+	height: 300px;
+	background-color: #dcdde1;
+	margin-bottom: 20px;
+	padding: 25px 25px 25px 25px;
+}
 
+select {
+	background-color: gray;
+	border: 1px solid gray;
+	font-size: 16px;
+	height: 25px;
+	width: 150px;
+	color: white;
+}
 </style>
 </head>
 <body>
@@ -165,66 +169,21 @@ header .header-black {
 		</div>
 
 	</header>
+		<div id="container1" >
+			<form method="post" action="../config_bd/bd_editar_usuario.php" class="modelo">
+			
+			Nome: <br><input type="text" name="nome" maxlength="30" value='<?php echo $_SESSION['nome_edit']?>' required/><br>
+			Login: <br><input type="text" name="usuario" maxlength= "30" value='<?php echo $_SESSION['usuario_edit']?>' required/><br>
+			Nova senha: <br><input type="password" name="senha" maxlength="30"  <?php echo $_SESSION['usuario_edit']?> required/><br>
+			Tipo:<br>
+				<select name="tipo">
+					<option>administrador</option>
+					<option>padrão</option>
+				</select><br><br>
+			<input  class="btn btn-primary fonte_menus" type="submit" value="Atualizar Informações"/>
+			</form>
+		</div>
 
-	<div id="container1">
-	
-		<a href="./usuario_novo.php"class="pull-right">+ Adicionar novo usuário</a><br><br>
-		<table class="table">
-		
-			
-			<thead >
-				<tr>
-					
-					<th scope="col">Nome</th>
-					<th scope="col">Login</th>
-					<th scope="col">Tipo</th>
-					<th scope="col">Ação</th>
-				</tr>
-			</thead>
-			<tbody>
-			
-			
-			
-				
-						<!-- Categorias valores do banco de dados -->
-    				<?php
-                        $i = 0;
-                        while ($i< $_SESSION['qtd_usuarios']) {
-                    ?>
-                    <form method="post" action="../config_bd/bd_deletar_usuario.php">
-    					<tr>
-    					<input type='hidden' name='id' value='<?php echo $_SESSION['id'.$i];  ?>'>
-    					<td><?php echo $_SESSION['nome'.$i]; ?></td>
-    					<td><?php echo $_SESSION['usuario'.$i]; ?></td>
-    					<td><?php
-    					
-    					if($_SESSION['tipo'.$i] =='t'){
-    					   echo "administrador";
-    					}else{
-    					   echo "padrão";    
-    					}
-    					
-    					 ?></td>
-    					<td>
-    					
-    					<input name='acao' class="btn btn-primary fonte_menus" type="submit" value="Excluir"/> 
-    					<input name='acao' class="btn btn-primary fonte_menus" type="submit" value="Editar"/>
-    					</td>
-    				
-    					</form>
-    					</tr>
-       				<?php
-                        $i++;
-                        }
-                    ?>
-      
-				
-				
-			</tbody>
-		</table>
-		
-		
-	</div>
+
 </body>
-
 </html>
