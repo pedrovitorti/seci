@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (! isset($_SESSION['user_logged_in'])) {
+if (! isset($_SESSION['user_logged_in']) || $_SESSION['user_admin'] =='f') { //não permite usuário padrão acessar essa página
     header('location:../index_login.php');
     exit();
 }

@@ -4,7 +4,9 @@ if (! isset($_SESSION['user_logged_in'])) {
     header('location:../index_login.php');
     exit();
 }
-
+if($_SESSION['user_admin'] =='f'){ // oculta do menu Página Principal e Configuração, se usuário não for admin
+    $_SESSION['menu_hidden'] = 'hidden';
+}
 include("../config_bd/conexao.php");
 include("../config_bd/bd_categoria_subcategoria.php");
 
@@ -223,10 +225,10 @@ select {
 			<div class="row">
 				<nav id="menu-opcoes" class="pull-right">
 					<ul>
-						<li><a href="./principal_adm.php">Página Inicial</a></li>
+						<span <?php echo $_SESSION['menu_hidden'];?>><li ><a href="./principal_adm.php" >Página Inicial</a></li></span>
 						<li><a href="./modelos.php">Criar avisos</a></li>
 						<li><a href="./galeria.php">Galeria</a></li>
-						<li><a href="./configuracao.php">Configuração</a></li>
+						<span <?php echo $_SESSION['menu_hidden'];?>><li><a href="./configuracao.php">Configuração</a></li></span>
 					</ul>
 				</nav>
 

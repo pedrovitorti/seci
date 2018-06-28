@@ -31,9 +31,11 @@ else {
     /* echo $row[3]; */
     
     if ($_SESSION['user_admin'] == 't') {
-        header("Location:../paginas/principal_adm.php");
+        header("Location:../paginas/principal_adm.php"); // redireciona para página do admin
+    } else if ($_SESSION['user_admin'] == 'f'){
+        header("Location:../paginas/modelos.php"); // redireciona para página do usuário padrão
     } else {
-        header("Location:../index_login.php");
+        header("Location:../index_login.php"); // erro no login
     }
 }
 
