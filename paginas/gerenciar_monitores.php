@@ -4,6 +4,12 @@ if (! isset($_SESSION['user_logged_in']) || $_SESSION['user_admin'] =='f') { //n
     header('location:../index_login.php');
     exit();
 }
+
+
+
+
+
+
 ?>
 
 <html>
@@ -80,46 +86,16 @@ header .header-black {
 	padding-top: 10px;
 }
 
-
-
-
-
 .container {
 	margin: 0 auto;
 	width: 940px;
 }
-
-#container1 {
-    padding: 90px 0px 0px 40px;
-    margin: 0 auto;
+#container1{
+ padding: 90px 0px 0px 40px;
+ margin: 0 auto;
 	width: 940px;
-	
+ 
 }
-
-#container2 {
-    padding: 0px 0px 0px 40px;
-    margin: 0 auto;
-	width: 940px;
-	
-}
-
-.col-md-6{
-
-	background-color: #dcdde1;
-	 padding: 20px 20px 20px 60px;
-}
-
-.col-md-12{
-
-	background-color: #dcdde1;
-	padding: 20px 20px 20px 60px;
-
-}
-
-hr{
-    border-top: 1px solid black;
-}
-
 </style>
 </head>
 <body>
@@ -164,19 +140,18 @@ hr{
 	</header>
 
 	<div id="container1">
-		<div class="row">
-			<div class="col-xs-6 col-md-6"><h4>Usuários</h4><hr><a href="./usuarios.php"><p>Gerenciar usuários</p></a></div>
-			<div class="col-xs-6 col-md-6"><h4>Quantidade avisos</h4><hr><a href="./numero_avisos.php"><p>Modificar número de avisos</a></p></div>
-		</div>
+		
+		<form action="../config_bd/ligar_desligar.php" method="post">
+		
+			<select name="rpi_on_off">
+					<option>Ligar</option>
+					<option>Desligar</option>
+			</select><br><br>
+		<button type="submit">Confirmar</button>
+	</form>
+		
+		
 	</div>
-	
-	<div id="container2">
-		<div class="row">
-			<div class="col-xs-6 col-md-6"><h4>Subcategorias</h4><hr><a href="./subcategorias.php"><p>Gerenciar Subcategorias</p></a></div>
-			<div class="col-xs-6 col-md-6"><h4>Gerenciar Monitores</h4><hr><a href="./gerenciar_monitores.php"><p>Ligar/Desligar</p></a></div>
-		</div>
-	</div>
-
 </body>
 
 </html>
