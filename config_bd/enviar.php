@@ -135,7 +135,7 @@ $client_id = "pedro-MQTTx"; // make sure this is unique for connecting to sever 
 $mqtt = new phpMQTT($server, $port, $client_id);
 
 if ($mqtt->connect(true, NULL, $username, $password)) {
-	$mqtt->publish("/seci", "true", 0);
+	$mqtt->publish("/seci", "atualizar", 0);
 	$mqtt->close();
 }
 

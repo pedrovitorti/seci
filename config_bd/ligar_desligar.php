@@ -20,7 +20,7 @@ if($rpi_on_off == "Desligar"){
     $mqtt = new phpMQTT($server, $port, $client_id);
     
     if ($mqtt->connect(true, NULL, $username, $password)) {
-    	$mqtt->publish("/desligar", "true", 0);
+    	$mqtt->publish("/seci", "desligar", 0);
     	$mqtt->close();
     }
 } else {
@@ -33,7 +33,7 @@ if($rpi_on_off == "Desligar"){
     $mqtt = new phpMQTT($server, $port, $client_id);
     
     if ($mqtt->connect(true, NULL, $username, $password)) {
-        $mqtt->publish("/ligar", "true", 0);
+        $mqtt->publish("/seci", "ligar", 0);
         $mqtt->close();
     }
     
