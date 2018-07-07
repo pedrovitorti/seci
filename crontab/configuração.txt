@@ -1,0 +1,3 @@
+00 07 * * 1-5 /home/otavio/Projetos/seci/crontab/ligar.php
+00 20 * * 1-5 /home/otavio/Projetos/seci/crontab/desligar.php
+
