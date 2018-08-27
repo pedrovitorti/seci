@@ -7,7 +7,7 @@
       $text = 'a';
       fwrite($f, $text);
       fclose($f);
-		header("Location:./principal_adm.php");
+	  header("Location:./principal_adm.php");
 
 ?>
 
