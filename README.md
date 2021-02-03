@@ -10,3 +10,5 @@ conclusão  de  curso  do  estudante  do  bacharelado  em  Ciência  da  Computa
 O   sistema   é   feito   para   repassar   avisos   rápidos,  especialmente   aqueles   que  impactam  a  rotina  de  toda  a  
 comunidade  acadêmica,  como  dicas  de  eventos,  editais  internos    e  externos  e  lembretes  de  datas  
 importantes para o calendário.
+
+Saiba mais: https://ifce.edu.br/maracanau/menu/jornais-e-revistas-ifce-maracanau/PorDentrodoIFCE_Mar_V_09.pdf
